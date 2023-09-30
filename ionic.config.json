@@ -1,0 +1,7 @@
+{
+  "name": "nutri-plan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
