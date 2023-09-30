@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Trang chủ </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="ion-text-center">
+    <h1 size="large">BMI</h1>
+  </div>
+  <ion-item>
+    <ion-label>Giới tính</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-select [(ngModel)]="gender">
+      <ion-select-option value="male">Nam</ion-select-option>
+      <ion-select-option value="female">Nữ</ion-select-option>
+      <ion-select-option value="other">Khác</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Chiều cao (cm)</ion-label>
+    <ion-input
+      placeholder="Nhập chiều cao...."
+      [(ngModel)]="height"
+      name="height"
+      type="number"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Cân nặng (kg)</ion-label>
+    <ion-input
+      placeholder="Nhập cân nặng..."
+      [(ngModel)]="weight"
+      name="weight"
+      type="number"
+    ></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="btnSubmit()">Xác nhận</ion-button>
+</ion-content>

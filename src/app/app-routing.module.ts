@@ -8,8 +8,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'bmi',
     pathMatch: 'full'
+  },
+  {
+    path: 'bmi',
+    loadChildren: () => import('./bmi/bmi.module').then( m => m.BMIPageModule)
   },
 ];
 
