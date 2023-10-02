@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        icon="chevron-back-outline"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title> Danh sách các bài tập </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-toolbar>
+    <ion-searchbar
+      class="custom-searchbar"
+      placeholder="Tìm kiếm"
+    ></ion-searchbar>
+  </ion-toolbar>
+
+  <ion-list>
+    <ion-item>
+      <ion-label class="ion-text-wrap"
+        ><span style="font-size: x-large">GYM</span> <br />Tập luyện/Danh
+        mục</ion-label
+      >
+      <ion-icon
+        name="funnel-outline"
+        class="ion-float-right"
+        size="small"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-card *ngFor="let baiTap of listExercise">
+      <ion-card-header>
+        <img [src]="baiTap.hinhAnh" alt="Avatar" />
+        <ion-card-subtitle>{{ baiTap.moTa }}</ion-card-subtitle>
+        <ion-card-title>{{ baiTap.ten }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          <ion-icon name="alarm-outline"></ion-icon>
+          {{baiTap.phut}} phút
+        </p>
+        <p>
+          <ion-icon name="bookmark-outline"></ion-icon>
+          Đốt {{baiTap.calo}} calo
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
