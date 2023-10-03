@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="dropdown-menu"></ion-menu-button>
+    </ion-buttons>
+    Dinh Dưỡng
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
+<h1>Dinh Dưỡng</h1>
+<ion-list>
+  <ion-item>
+    <ion-label>Select Category</ion-label>  
+    <ion-select [(ngModel)]="selectedSuitable" (ionChange)="filterFoodItems()">
+      <ion-select-option value="Gầy">BMI < 18.5</ion-select-option>
+      <ion-select-option value="Ốm">18.5 < BMI < 23.9</ion-select-option>
+      <ion-select-option value="mập">BMI > 24 </ion-select-option>
+      <ion-select-option value="">ALL</ion-select-option>
+    </ion-select>
+  
+  </ion-item>
+</ion-list>
+  <ion-grid>
+    <ion-row>
+      <ng-container *ngFor="let foodItem of filteredFoodItems; let i = index">
+        <ion-col size="6" *ngIf="i % 2 === 0">
+          <ion-item [routerLink]="['/food-details', foodItem.id]">
+            <ion-thumbnail slot="start">
+              <img [src]="'assets/images/' + foodItem.image" alt="{{ foodItem.name }}" />
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{ foodItem.name }}</h2>
+              <p>{{ foodItem.category }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6" *ngIf="i % 2 !== 0">
+          <ion-item [routerLink]="['/food-details', foodItem.id]">
+            <ion-thumbnail slot="start">
+              <img [src]="'assets/images/' + foodItem.image" alt="{{ foodItem.name }}" />
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{ foodItem.name }}</h2>
+              <p>{{ foodItem.category }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+  </ion-grid>
+  <h1>Nổi Bật</h1>
+  <div class="featured-items">
+    <ng-container *ngFor="let featuredItem of featuredFoodItems; let i = index">
+      <div class="featured-item">
+        <ion-card>
+          <ion-card-content class="featured-item-content">
+            <img [src]="featuredItem.imageUrl" alt="{{ featuredItem.name }}" />
+            <p class="featured-item-title">{{ featuredItem.name }}</p>
+            <p class="featured-item-category">{{ featuredItem.category }}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ng-container>
+  </div>  
+  <h1>Thức ăn cần tránh</h1>
+  <div class="avoid-items">
+    <ng-container *ngFor="let avoidItem of avoidFoodItems; let i = index">
+      <div class="avoid-item">
+        <ion-card>
+          <ion-card-content class="avoid-item-content">
+            <img [src]="avoidItem.imageUrl" alt="{{ avoidItem.name }}" />
+            <p class="avoid-item-title">{{ avoidItem.name }}</p>
+            <p class="avoid-item-category">{{ avoidItem.category }}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ng-container>
+  </div>
+</ion-content>

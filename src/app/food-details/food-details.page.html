@@ -1,0 +1,46 @@
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+     
+      <div>
+        <ion-img
+        [src]="'assets/images/' + foodItem.image"
+        alt="{{ foodItem.name }}"
+      ></ion-img>
+      <div class="row">
+        <h2>{{ foodItem.name }}</h2>
+        <div class="square_1"><p>{{foodItem.calories}} calories</p></div>
+      </div>
+      <div class="stars">
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <p>4.8/5.0</p>
+      </div>
+      <div class="square-container">
+        <div class="square"><p>200 Carbs</p></div>
+        <div class="square"><p>25 Protein</p> </div>
+        <div class="square"><p>12 Fibre</p></div>
+        <div class="square"><p>55 Fat</p></div>
+      </div>
+      
+      <p>Chuyên mục: {{ foodItem.category }}</p>
+      <p>Lượng calories: {{foodItem.calories}}</p>
+      <div class="recipe">
+        <h3>Công thức nấu ăn</h3>
+        <div class="recipe-content">
+          <p class="l" [innerHTML]="foodItem.recipe"></p>
+          <p [innerHTML]="foodItem.work"></p>
+         
+        </div>
+      </div>
+      <div>
+        <ion-button (click)="goBack()">Back</ion-button>
+      </div>
+      </div>
+   
+    </ion-card-content>
+  </ion-card>
+</ion-content>
