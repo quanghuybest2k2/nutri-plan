@@ -29,7 +29,7 @@ export class CategoryFoodPage {
     // Dữ liệu mẫu thức ăn với chuyên mục
     const foodItems = [
       { id: 1,
-         name: 'Bún riêu cua',
+        name: 'Bún riêu cua',
         category: 'Mặn',
         image: 'bunrieu.jpg',
         suitable: 'Gầy', 
