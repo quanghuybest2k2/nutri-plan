@@ -1,33 +1,43 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button menu="dropdown-menu"></ion-menu-button>
+      <!-- nút back  -->
+      <ion-back-button
+        defaultHref="/"
+        icon="chevron-back-outline"
+      ></ion-back-button>
     </ion-buttons>
-    Dinh Dưỡng
+    <ion-title> Dinh dưỡng</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-<ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
-<h1>Dinh Dưỡng</h1>
-<ion-list>
-  <ion-item>
-    <ion-label>Select Category</ion-label>  
-    <ion-select [(ngModel)]="selectedSuitable" (ionChange)="filterFoodItems()">
-      <ion-select-option value="Gầy">BMI < 18.5</ion-select-option>
-      <ion-select-option value="Ốm">18.5 < BMI < 23.9</ion-select-option>
-      <ion-select-option value="mập">BMI > 24 </ion-select-option>
-      <ion-select-option value="">ALL</ion-select-option>
-    </ion-select>
-  
-  </ion-item>
-</ion-list>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
+  <h1>Dinh Dưỡng</h1>
+  <ion-list>
+    <ion-item>
+      <ion-label>Select Category</ion-label>
+      <ion-select
+        [(ngModel)]="selectedSuitable"
+        (ionChange)="filterFoodItems()"
+      >
+        <ion-select-option value="Gầy">BMI < 18.5</ion-select-option>
+        <ion-select-option value="Ốm">18.5 < BMI < 23.9</ion-select-option>
+        <ion-select-option value="mập">BMI > 24 </ion-select-option>
+        <ion-select-option value="">ALL</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
   <ion-grid>
     <ion-row>
       <ng-container *ngFor="let foodItem of filteredFoodItems; let i = index">
         <ion-col size="6" *ngIf="i % 2 === 0">
           <ion-item [routerLink]="['/food-details', foodItem.id]">
             <ion-thumbnail slot="start">
-              <img [src]="'assets/images/' + foodItem.image" alt="{{ foodItem.name }}" />
+              <img
+                [src]="'assets/images/' + foodItem.image"
+                alt="{{ foodItem.name }}"
+              />
             </ion-thumbnail>
             <ion-label>
               <h2>{{ foodItem.name }}</h2>
@@ -38,7 +48,10 @@
         <ion-col size="6" *ngIf="i % 2 !== 0">
           <ion-item [routerLink]="['/food-details', foodItem.id]">
             <ion-thumbnail slot="start">
-              <img [src]="'assets/images/' + foodItem.image" alt="{{ foodItem.name }}" />
+              <img
+                [src]="'assets/images/' + foodItem.image"
+                alt="{{ foodItem.name }}"
+              />
             </ion-thumbnail>
             <ion-label>
               <h2>{{ foodItem.name }}</h2>
@@ -62,7 +75,7 @@
         </ion-card>
       </div>
     </ng-container>
-  </div>  
+  </div>
   <h1>Thức ăn cần tránh</h1>
   <div class="avoid-items">
     <ng-container *ngFor="let avoidItem of avoidFoodItems; let i = index">
