@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { LocalStorageService } from '../services/local-storage.service';
+import { StorageService } from '../services/storage.service';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -17,7 +17,7 @@ export class CategoryFoodPage {
   constructor(
     
     private navCtrl: NavController,
-    private localStorageService: LocalStorageService
+    private storageService: StorageService
   ) { }
 
   ionViewWillEnter() {
@@ -97,13 +97,13 @@ export class CategoryFoodPage {
 
     ];
 
-    const storedData = this.localStorageService.getData('foodItems');
+    const storedData = this.storageService.get('foodItems');
     if (!storedData) {
-      this.localStorageService.setData('foodItems', foodItems);
+      this.storageService.set('foodItems', foodItems);
     }
 
     // Lấy dữ liệu từ Local Storage
-    this.foodItems = this.localStorageService.getData('foodItems') || [];
+    this.foodItems = this.storageService.get('foodItems') || [];
   }
   navigateToFoodDetails(foodItemId: number) {
     this.navCtrl.navigateForward(`/food-details/${foodItemId}`);
