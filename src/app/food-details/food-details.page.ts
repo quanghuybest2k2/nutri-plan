@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { StorageService } from '../services/storage.service';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-food-details',
@@ -14,7 +14,7 @@ export class FoodDetailsPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private storageService: StorageService
+    private localStorageService: LocalStorageService
   ) {}
 
   ngOnInit() {
@@ -26,11 +26,14 @@ export class FoodDetailsPage implements OnInit {
       this.foodItem.work = this.foodItem.work.replace(/\n/g, '<br>');
     });
   }
+  goBack() {
+    this.router.navigate(['/category-food']); // Điều hướng về trang chính, bạn có thể thay đổi URL theo trang mà bạn muốn quay lại
+  }
   getFoodItemById(id: string | null): any {
     if (id === null) {
       return {}; // Hoặc giá trị mặc định khác tùy bạn
     }
-    const foodItems = this.storageService.get('foodItems') || [];
+    const foodItems = this.localStorageService.getData('foodItems') || [];
     return foodItems.find((item: any) => item.id === parseInt(id, 10)) || {};
   }
 }
