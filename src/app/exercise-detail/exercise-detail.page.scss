@@ -1,0 +1,27 @@
+.card {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card iframe {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+ion-card-subtitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+ion-card-content {
+    font-size: 1rem;
+}

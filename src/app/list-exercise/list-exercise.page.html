@@ -32,7 +32,10 @@
     </ion-item>
   </ion-list>
   <ion-list>
-    <ion-card *ngFor="let baiTap of listExercise">
+    <ion-card
+      *ngFor="let baiTap of listExercise"
+      [routerLink]="['/exercise-detail', baiTap.id]"
+    >
       <ion-card-header>
         <img [src]="baiTap.hinhAnh" alt="Avatar" />
         <ion-card-subtitle>{{ baiTap.moTa }}</ion-card-subtitle>
