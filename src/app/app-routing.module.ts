@@ -20,18 +20,19 @@ const routes: Routes = [
     loadChildren: () => import('./list-exercise/list-exercise.module').then( m => m.ListExercisePageModule)
   },
   {
-    path: 'food-details',
-    loadChildren: () => import('./food-details/food-details.module').then( m => m.FoodDetailsPageModule)
-  },
-  {
     path: 'food-details/:id',
     loadChildren: () =>
       import('./food-details/food-details.module').then(
         (m) => m.FoodDetailsPageModule
       ),
-  },  {
+  },
+  {
     path: 'category-food',
     loadChildren: () => import('./category-food/category-food.module').then( m => m.CategoryFoodPageModule)
+  },
+  {
+    path: 'exercise-detail/:id',
+    loadChildren: () => import('./exercise-detail/exercise-detail.module').then( m => m.ExerciseDetailPageModule)
   },
 
 
