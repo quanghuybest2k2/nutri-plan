@@ -13,5 +13,4 @@ export class ListExercisePage implements OnInit {
 
   ngOnInit() {
   }
-
 }
