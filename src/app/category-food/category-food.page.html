@@ -1,43 +1,63 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button
-        defaultHref="/"
-        icon="chevron-back-outline"
-      ></ion-back-button>
+      <ion-menu-button menu="dropdown-menu"></ion-menu-button>
     </ion-buttons>
-    <ion-title> Dinh dưỡng </ion-title>
+    Dinh Dưỡng
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
-  <h1>Dinh Dưỡng</h1>
-  <ion-list>
-    <ion-item>
-      <ion-label>Select Category</ion-label>
-      <ion-select
-        [(ngModel)]="selectedSuitable"
-        (ionChange)="filterFoodItems()"
-      >
-        <ion-select-option value="Gầy">BMI < 18.5</ion-select-option>
-        <ion-select-option value="Ốm">18.5 < BMI < 23.9</ion-select-option>
-        <ion-select-option value="mập">BMI > 24 </ion-select-option>
-        <ion-select-option value="">ALL</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+<ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
+<h1>Dinh Dưỡng</h1>
+<ion-segment [(ngModel)]="selectedSuitable" (ionChange)="filterFoodItems()">
+  <ion-segment-button value="">
+    ALL
+  </ion-segment-button>
+  <ion-segment-button value="Gầy">
+    Gầy
+  </ion-segment-button>
+  <ion-segment-button value="Béo phì">
+    Béo phì
+  </ion-segment-button>
+  <ion-segment-button value="mập">
+    Mập
+  </ion-segment-button>
+</ion-segment>
+  <!-- <ion-grid>
+    <ion-row>
+      <ng-container *ngFor="let foodItem of filteredFoodItems; let i = index">
+        <ion-col size="6" *ngIf="i % 2 === 0">
+          <ion-item [routerLink]="['/food-details', foodItem.id]">
+            <ion-thumbnail slot="start">
+              <img [src]="'assets/images/' + foodItem.image" alt="{{ foodItem.name }}" />
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{ foodItem.name }}</h2>
+              <p>{{ foodItem.category }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6" *ngIf="i % 2 !== 0">
+          <ion-item [routerLink]="['/food-details', foodItem.id]">
+            <ion-thumbnail slot="start">
+              <img [src]="'assets/images/' + foodItem.image" alt="{{ foodItem.name }}" />
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{ foodItem.name }}</h2>
+              <p>{{ foodItem.category }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+  </ion-grid> -->
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
         <ion-segment scrollable>
-          <ion-segment-button
-            *ngFor="let foodItem of filteredFoodItems; let i = index"
-            value="{{ foodItem.id }}"
-            [routerLink]="['/food-details', foodItem.id]"
-          >
+          <ion-segment-button *ngFor="let foodItem of filteredFoodItems; let i = index" value="{{ foodItem.id }}" [routerLink]="['/food-details', foodItem.id]">
             <ion-card class="ion-no-margin">
-              <img [src]="'assets/images/' + foodItem.image" />
+              <img [src]="'assets/images/' + foodItem.image">
               <ion-card-header class="ion-align-items-start ion-no-padding">
                 <ion-card-title>{{ foodItem.name }}</ion-card-title>
                 <ion-card-subtitle>{{ foodItem.category }}</ion-card-subtitle>
@@ -54,23 +74,18 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <h1>Nổi Bật</h1>
+  
+  <h1 >Nổi Bật</h1>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
         <ion-segment scrollable>
-          <ion-segment-button
-            *ngFor="let featuredItem of featuredFoodItems; let i = index"
-            value="{{ featuredItem.id }}"
-          >
+          <ion-segment-button *ngFor="let featuredItem of featuredFoodItems; let i = index" value="{{ featuredItem.id }}">
             <ion-card class="ion-no-margin">
-              <img [src]="featuredItem.imageUrl" />
+              <img [src]="featuredItem.imageUrl">
               <ion-card-header class="ion-align-items-start ion-no-padding">
                 <ion-card-title>{{ featuredItem.name }}</ion-card-title>
-                <ion-card-subtitle
-                  >{{ featuredItem.category }}</ion-card-subtitle
-                >
+                <ion-card-subtitle>{{ featuredItem.category }}</ion-card-subtitle>
               </ion-card-header>
             </ion-card>
           </ion-segment-button>
@@ -78,16 +93,13 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
+  
   <h1>Thức ăn cần tránh</h1>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
         <ion-segment scrollable>
-          <ion-segment-button
-            *ngFor="let avoidItem of avoidFoodItems; let i = index"
-            value="{{ avoidItem['id'] }}"
-          >
+          <ion-segment-button *ngFor="let avoidItem of avoidFoodItems; let i = index" value="{{ avoidItem['id'] }}">
             <ion-card class="ion-no-margin">
               <img [src]="avoidItem.imageUrl" />
               <ion-card-header class="ion-align-items-start ion-no-padding">
@@ -99,5 +111,5 @@
         </ion-segment>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid>  
 </ion-content>
