@@ -29,7 +29,8 @@ const routes: Routes = [
       import('./food-details/food-details.module').then(
         (m) => m.FoodDetailsPageModule
       ),
-  },  {
+  },
+  {
     path: 'category-food',
     loadChildren: () => import('./category-food/category-food.module').then( m => m.CategoryFoodPageModule)
   },

@@ -9,18 +9,20 @@
 <ion-content>
 <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
 <h1>Dinh Dưỡng</h1>
-<ion-list>
-  <ion-item>
-    <ion-label>Select Category</ion-label>  
-    <ion-select [(ngModel)]="selectedSuitable" (ionChange)="filterFoodItems()">
-      <ion-select-option value="Gầy">BMI < 18.5</ion-select-option>
-      <ion-select-option value="Ốm">18.5 < BMI < 23.9</ion-select-option>
-      <ion-select-option value="mập">BMI > 24 </ion-select-option>
-      <ion-select-option value="">ALL</ion-select-option>
-    </ion-select>
-  
-  </ion-item>
-</ion-list>
+<ion-segment [(ngModel)]="selectedSuitable" (ionChange)="filterFoodItems()">
+  <ion-segment-button value="">
+    ALL
+  </ion-segment-button>
+  <ion-segment-button value="Gầy">
+    Gầy
+  </ion-segment-button>
+  <ion-segment-button value="Béo phì">
+    Béo phì
+  </ion-segment-button>
+  <ion-segment-button value="mập">
+    Mập
+  </ion-segment-button>
+</ion-segment>
   <!-- <ion-grid>
     <ion-row>
       <ng-container *ngFor="let foodItem of filteredFoodItems; let i = index">

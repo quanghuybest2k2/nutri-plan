@@ -27,7 +27,7 @@ export class FoodDetailsPage implements OnInit {
     });
   }
   goBack() {
-    this.router.navigate(['/category-food']); // Điều hướng về trang chính, bạn có thể thay đổi URL theo trang mà bạn muốn quay lại
+    this.router.navigate(['/category-food']); 
   }
   getFoodItemById(id: string | null): any {
     if (id === null) {
