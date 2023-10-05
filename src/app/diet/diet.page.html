@@ -1,11 +1,40 @@
 <ion-content [fullscreen]="true">
-  <ion-toolbar style="height: 104px;">
 
-  </ion-toolbar>
-  <div class="ion-padding">
+  <div class="header-label">
     <ion-label>
       <h1>Chế độ</h1>
       <p>Tự xây dựng chế độ cho bản thân</p>
     </ion-label>
   </div>
+
+  <div align="center">
+    <div class="calories-info">
+      <div>
+        <p>Cần nạp thêm</p>
+        <strong>2000</strong>
+        <p>Calories</p>
+      </div>
+    </div>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col size="4"><span class="recharged"></span>Đã nạp: 323</ion-col>
+      <ion-col size="4"><span class="burned"></span>Đã đốt: 235</ion-col>
+      <ion-col size="4"><span class="required"></span>Cần nạp: 2000</ion-col>
+    </ion-row>
+  </div>
+
+  <ion-segment value="pizza">
+    <ion-segment-button value="pizza">
+      <ion-label>Pizza</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="pasta">
+      <ion-label>Pasta</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
