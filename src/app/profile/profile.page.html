@@ -1,11 +1,11 @@
-<ion-content scroll-y="false" [fullscreen]="true">
-  <ion-toolbar style="height: 60px"> </ion-toolbar>
+<ion-content class="no-scroll" [fullscreen]="true">
+  <!-- <ion-toolbar style="height: 60px"> </ion-toolbar> -->
 
-  <div align="center" style="margin-bottom: 12px">
+  <div align="center" style="margin: 30px 0px 12px 0px">
     <ion-avatar style="width: 120px; height: 120px">
       <img src=" /assets/images/user.jpg" />
     </ion-avatar>
-    <h3 class="name" style="margin-top: 20px; margin-bottom: 0">
+    <h3 class="name" style="margin-top: 20px; margin-bottom: 0;">
       {{userInfo.name}}
     </h3>
   </div>
@@ -49,19 +49,19 @@
       <ion-label slot="start">
         <h2 class="status-label">Trạng thái</h2>
       </ion-label>
-      <ion-input type="text" class="status-input" value="Bình thường"></ion-input>
+      <ion-input type="text" class="status-input" readonly="true" value="Bình thường"></ion-input>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start">
         <h2 class="status-label">Lượng nước cần uống</h2>
       </ion-label>
-      <ion-input type="text" class="status-input" value="1.2 L"></ion-input>
+      <ion-input type="text" class="status-input" readonly="true" value="1.2 L"></ion-input>
     </ion-item>
     <ion-item lines="none">
       <ion-label slot="start">
         <h2 class="status-label">Thực phẩm cần kiêng</h2>
       </ion-label>
-      <ion-input type="text" class="status-input" value="Không"></ion-input>
+      <ion-input type="text" readonly="true" class="status-input" value="Không"></ion-input>
     </ion-item>
     <ion-button class="ion-margin-top" expand="full" (click)="btnEditSubmit()" color="dark" shape="round">
       Sửa thông tin
