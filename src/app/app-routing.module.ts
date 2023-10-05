@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,11 +13,11 @@ const routes: Routes = [
   },
   {
     path: 'bmi',
-    loadChildren: () => import('./bmi/bmi.module').then( m => m.BMIPageModule)
+    loadChildren: () => import('./bmi/bmi.module').then(m => m.BMIPageModule)
   },
   {
     path: 'list-exercise',
-    loadChildren: () => import('./list-exercise/list-exercise.module').then( m => m.ListExercisePageModule)
+    loadChildren: () => import('./list-exercise/list-exercise.module').then(m => m.ListExercisePageModule)
   },
   {
     path: 'food-details/:id',
@@ -28,18 +28,23 @@ const routes: Routes = [
   },
   {
     path: 'category-food',
-    loadChildren: () => import('./category-food/category-food.module').then( m => m.CategoryFoodPageModule)
+    loadChildren: () => import('./category-food/category-food.module').then(m => m.CategoryFoodPageModule)
   },
   {
     path: 'exercise-detail/:id',
-    loadChildren: () => import('./exercise-detail/exercise-detail.module').then( m => m.ExerciseDetailPageModule)
-  },  {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./exercise-detail/exercise-detail.module').then(m => m.ExerciseDetailPageModule)
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
+  },
+  {
+    path: 'diet',
+    loadChildren: () => import('./diet/diet.module').then(m => m.DietPageModule)
   },
 
 
