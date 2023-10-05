@@ -1,15 +1,14 @@
 <ion-content [fullscreen]="true">
-  <ion-toolbar style="height: 80px;">
+  <ion-toolbar style="height: 80px"> </ion-toolbar>
 
-  </ion-toolbar>
-
-  <div align="center" style="margin-bottom: 12px;">
-    <ion-avatar style="width: 120px; height: 120px;">
+  <div align="center" style="margin-bottom: 12px">
+    <ion-avatar style="width: 120px; height: 120px">
       <img src=" /assets/images/user.jpg" />
     </ion-avatar>
-    <h3 class="name" style="margin-top: 20px; margin-bottom: 0;">{{user?.name}}</h3>
+    <h3 class="name" style="margin-top: 20px; margin-bottom: 0">
+      {{userInfo.name}}
+    </h3>
   </div>
-
 
   <div class="bmi-content">
     <ion-item lines="none">
@@ -17,54 +16,86 @@
         <h1>Chỉ số BMI</h1>
         <p>Tính toàn thể trang sức khỏe</p>
       </ion-label>
-      <div class="bmi-number">
-        20.43
-      </div>
+      <div class="bmi-number">20.43</div>
     </ion-item>
     <ion-item lines="none">
       <ion-label>
         <h2>Giới tính</h2>
       </ion-label>
-      <ion-input type="text" class="bmi-input" value="{{user?.gender}}" slot="end"></ion-input>
+      <ion-input
+        type="text"
+        class="bmi-input"
+        [(ngModel)]="userInfo.gender"
+        slot="end"
+      ></ion-input>
     </ion-item>
+
     <ion-item lines="none">
       <ion-label>
         <h2>Chiều cao</h2>
       </ion-label>
-      <ion-input type="text" class="bmi-input" value="{{user?.height}}" slot="end"></ion-input>
+      <ion-input
+        type="text"
+        class="bmi-input"
+        [(ngModel)]="userInfo.height"
+        slot="end"
+      ></ion-input>
     </ion-item>
     <ion-item lines="none">
       <ion-label>
         <h2>Cân nặng</h2>
       </ion-label>
-      <ion-input type="text" class="bmi-input" value="{{user?.weight}}" slot="end"></ion-input>
+      <ion-input
+        type="text"
+        class="bmi-input"
+        [(ngModel)]="userInfo.weight"
+        slot="end"
+      ></ion-input>
     </ion-item>
 
-    <hr class="dashed">
+    <hr class="dashed" />
 
     <ion-item lines="none">
-      <ion-label slot="start">
+      <ion-label>
         <h2>Trạng thái</h2>
       </ion-label>
-      <ion-input type="text" class="status-input" value="Bình thường"></ion-input>
+      <ion-input
+        type="text"
+        class="status-input"
+        value="Bình thường"
+        slot="end"
+      ></ion-input>
     </ion-item>
     <ion-item lines="none">
-      <ion-label slot="start">
+      <ion-label>
         <h2>Lượng nước cần uống</h2>
       </ion-label>
-      <ion-input type="text" class="status-input" value="1.2 L"></ion-input>
+      <ion-input
+        type="text"
+        class="status-input"
+        value="Bình thường"
+        slot="end"
+      ></ion-input>
     </ion-item>
     <ion-item lines="none">
-      <ion-label slot="start">
+      <ion-label>
         <h2>Thực phẩm cần kiêng</h2>
       </ion-label>
-      <ion-input type="text" class="status-input" value="Không"></ion-input>
+      <ion-input
+        type="text"
+        class="status-input"
+        value="Bình thường"
+        slot="end"
+      ></ion-input>
     </ion-item>
+    <ion-button
+      class="ion-margin-top"
+      expand="full"
+      (click)="btnEditSubmit()"
+      color="dark"
+      shape="round"
+    >
+      Sửa thông tin
+    </ion-button>
   </div>
-
-
-  <ion-button (click)="showInfo()" expand="block" fill="clear" shape="round">
-    Click me
-  </ion-button>
-
 </ion-content>

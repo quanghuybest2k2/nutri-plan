@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { UserInfo } from '../Models/User-Info.model';
 import { StorageService } from './storage.service';
+import { UserInfo } from '../Models/User-Info.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,8 +25,15 @@ export class InfoService {
     currentInfoArray.push(newInfo);
     this.storageService.set(this.USER_INFO_KEY, currentInfoArray);
   }
-  getInfo(): UserInfo[] {
-    return this.storageService.get(this.USER_INFO_KEY) || [];
+
+  // Lấy thông tin người dùng từ local storage
+  getInfo(): [{
+    name: string;
+    gender: string;
+    height: number;
+    weight: number;
+  }] | null {
+    return this.storageService.get(this.USER_INFO_KEY);
   }
   editInfo(
     name: string,
@@ -48,7 +55,6 @@ export class InfoService {
       this.storageService.set(this.USER_INFO_KEY, currentInfoArray);
     }
   }
-
   // Xóa từ local storage
   clearDataUser(): void {
     this.storageService.remove(this.USER_INFO_KEY);
