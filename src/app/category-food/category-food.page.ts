@@ -14,6 +14,8 @@ export class CategoryFoodPage {
   selectedCategory: string = '';
   selectedSuitable: string = '';
   selectedBMILimit: number = 0;
+  featuredFoodItems: any[] = [];
+  avoidFoodItems: any[] = [];
   constructor(
     
     private navCtrl: NavController,
@@ -24,12 +26,11 @@ export class CategoryFoodPage {
     this.loadFoodItems();
     this.filterFoodItems();
   }
-
+  
   loadFoodItems() {
-    // Dữ liệu mẫu thức ăn với chuyên mục
     const foodItems = [
       { id: 1,
-        name: 'Bún riêu  ',
+        name: 'Bún riêu cua',
         category: 'Mặn',
         image: 'bunrieu.jpg',
         suitable: 'Gầy', 
@@ -57,7 +58,7 @@ export class CategoryFoodPage {
       10. Bún riêu cua thịt bò làm xong, bạn nên ăn nóng mới ngon nhất.
     `   },
       { id: 2, 
-        name: 'Cơm sườn ',
+        name: 'Cơm',
         category: 'Mặn',
         image: 'com.jpg',
         suitable: 'Gầy',
@@ -84,27 +85,30 @@ export class CategoryFoodPage {
       10.Pha chế nước mắm`,   
         calories: 18.5 },
       { id: 3, name: 'Gà nướng', category: 'Mặn', image: 'ganuong.jpg', suitable: 'Gầy', calories: 24 },
-      { id: 4, name: 'Bánh kem', category: 'Khai vị', image: 'banhkem.jpg', suitable: 'Ốm', calories: 18.5 },
-      { id: 5, name: 'Bún bò', category: 'Mặn', image: 'bunrieu.jpg', suitable: 'Gầy', calories: 18.5 },
-      { id: 6, name: 'Khoai', category: 'Khai vị', image: 'che.jpg', suitable: 'Bình thường', calories: 23 },
-      { id: 7, name: 'Đậu đen', category: 'Mặn', image: 'dauden.jpg', suitable: 'mập', calories: 23 },
-      { id: 8, name: 'Sữa', category: 'Eat-clean', image: 'sua.jpg', suitable: 'ốm', calories: 18.5 },
-      { id: 9, name: 'Nước ép', category: 'Eat-clean', image: 'nuocep.jpg', suitable: 'Béo phì', calories: 18.5 },
-      { id: 10, name: 'Cơm', category: 'Món chay', image: 'che.jpg', suitable: 'Bình thường', calories: 20 },
-      { id: 11, name: 'Bơ', category: 'Khai vị', image: 'bo.jpg', suitable: 'mập', calories: 25 },
-      { id: 12, name: 'Ngũ cốc', category: 'Eat-clean', image: 'ngucoc.jpg', suitable: 'Bình thường, Ốm', calories: 18.5 },
-
-
+      { id: 4, name: 'Bánh kem', category: 'Ngọt', image: 'banhkem.jpg', suitable: 'Ốm', calories: 18.5 },
+      { id: 5, name: 'Bún riêu cua', category: 'Mặn', image: 'bunrieu.jpg', suitable: 'Gầy', calories: 18.5 },
+      { id: 6, name: 'Khoai', category: 'Củ', image: 'che.jpg', suitable: 'Bình thường', calories: 23 },
+      { id: 7, name: 'Đậu đen', category: 'Củ', image: 'dauden.jpg', suitable: 'mập', calories: 23 },
+      { id: 8, name: 'Sữa', category: 'Ngọt', image: 'sua.jpg', suitable: 'ốm', calories: 18.5 },
+      { id: 9, name: 'Nước ép', category: 'Trái cây', image: 'bunrieu.jpg', suitable: 'Béo phì', bmi: 18.5 },
+      { id: 10, name: 'Cơm', category: 'Mặn', image: 'che.jpg', suitable: 'Bình thường', bmi: 18.5 },
+      { id: 11, name: 'Bơ', category: 'Trái cây', image: 'bo.jpg', suitable: 'mập', bmi: 18.5, item:'Nổi Bật' },
+      { id: 12, name: 'Bơ', category: 'Trái cây', image: 'bo.jpg', suitable: 'mập', bmi: 18.5, item:'Nổi Bật' },
+      { id: 13, name: 'Bơ', category: 'Trái cây', image: 'bo.jpg', suitable: 'mập', bmi: 18.5, item:'Nổi Bật' },
+      { id: 13, name: 'Bơ', category: 'Trái cây', image: 'bo.jpg', suitable: 'mập', bmi: 18.5, item:'Nổi Bật' },
+      { id: 14, name: 'Bơ', category: 'Trái cây', image: 'bo.jpg', suitable: 'mập', bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 15, name: 'Bơ', category: 'Trái cây', image: 'bo.jpg', suitable: 'mập', bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 16, name: 'Bơ', category: 'Trái cây', image: 'bo.jpg', suitable: 'mập', bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 17, name: 'Bơ', category: 'Trái cây', image: 'bo.jpg', suitable: 'mập', bmi: 18.5, item:'Thức ăn cần tránh' },
     ];
-
     const storedData = this.storageService.get('foodItems');
     if (!storedData) {
       this.storageService.set('foodItems', foodItems);
     }
-
-    // Lấy dữ liệu từ Local Storage
     this.foodItems = this.storageService.get('foodItems') || [];
+    this.foodItems = foodItems;
   }
+  
   navigateToFoodDetails(foodItemId: number) {
     this.navCtrl.navigateForward(`/food-details/${foodItemId}`);
   }
@@ -114,36 +118,14 @@ export class CategoryFoodPage {
         (food) => food.category === this.selectedCategory
       );
     } else {
-      // Hiển thị tất cả thức ăn nếu không có chuyên mục nào được chọn
       this.filteredFoodItems = this.foodItems;
     }
-  }
-  featuredFoodItems: any[] = [
-    { id: 14, name: 'Thức ăn nổi bật 2', category: 'Ngọt', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 15, name: 'Thức ăn nổi bật 3', category: 'Củ', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 13, name: 'Thức ăn nổi bật 3', category: 'Mặn', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 14, name: 'Thức ăn nổi bật 2', category: 'Ngọt', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 15, name: 'Thức ăn nổi bật 3', category: 'Củ', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 15, name: 'Thức ăn nổi bật 3', category: 'Củ', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 14, name: 'Thức ăn nổi bật 2', category: 'Ngọt', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 15, name: 'Thức ăn nổi bật 3', category: 'Củ', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 13, name: 'Gạo Lức', category: 'Mặn', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 14, name: 'Thức ăn nổi bật 2', category: 'Ngọt', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 15, name: 'Thức ăn nổi bật 3', category: 'Củ', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    // Thêm các thức ăn nổi bật khác vào đây với URL hình ảnh tương ứng
-  ];
-  avoidFoodItems: any[] = [
-    { id: 13, name: 'Gạo Lức', category: 'Mặn', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 13, name: 'Gạo Lức', category: 'Mặn', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 13, name: 'Gạo Lức', category: 'Mặn', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 13, name: 'Gạo Lức', category: 'Mặn', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 13, name: 'Gạo Lức', category: 'Mặn', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 13, name: 'Gạo Lức', category: 'Mặn', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 13, name: 'Gạo Lức', category: 'Mặn', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    { id: 13, name: 'Gạo Lức', category: 'Mặn', imageUrl: 'https://i.pinimg.com/564x/a2/45/24/a24524c60d6ea16adf8cf6aad6b45e77.jpg' },
-    
-  ];
+    this.featuredFoodItems = this.foodItems.filter(
+      (food) => food.item === 'Nổi Bật'
+    );
 
-  
-  
+    this.avoidFoodItems = this.foodItems.filter(
+      (food) => food.item === 'Thức ăn cần tránh'
+    );
+  }  
 }
