@@ -1,46 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoService } from '../services/info.service';
-import { UserInfo } from '../Models/User-Info.model';
-import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  userInfo: UserInfo = {
-    name: '',
-    gender: '',
-    height: 0,
-    weight: 0,
-  };
 
-  constructor(private infoService: InfoService, private router: Router) {}
 
+  constructor(private infoService: InfoService) { }
+  user: {
+    name: string;
+    gender: string;
+    height: number;
+    weight: number;
+  } | undefined;
+  userProfile: [{
+    name: string;
+    gender: string;
+    height: number;
+    weight: number;
+  }] | null = this.infoService.getInfo();
   ngOnInit() {
-    if (!this.infoService.isProvidedBMI()) {
-      this.router.navigateByUrl('/bmi');
+    if (this.userProfile !== null) {
+      this.user = this.userProfile[0]
     }
   }
-
-  ionViewWillEnter() {
-    const userInfos = this.infoService.getInfo();
-    if (userInfos && userInfos.length > 0) {
-      this.userInfo = userInfos[0];
+  showInfo() {
+    if (typeof (this.user) !== "undefined") {
+      console.log(this.user.name);
     }
-  }
-
-  checkBMI(): boolean {
-    return this.infoService.isProvidedBMI();
-  }
-
-  btnEditSubmit() {
-    this.infoService.editInfo(
-      this.userInfo.name,
-      this.userInfo.gender,
-      this.userInfo.height,
-      this.userInfo.weight
-    );
   }
 }

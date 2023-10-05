@@ -11,19 +11,12 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-card-subtitle class="ion-text-center"
-        >Ăn ngon - Sống khỏe - Cân bằng</ion-card-subtitle
-      >
+      <ion-card-subtitle class="ion-text-center">Ăn ngon - Sống khỏe - Cân bằng</ion-card-subtitle>
     </ion-card-content>
     <ion-card-content>
       <ion-item>
         <ion-label position="floating" class="custom-label">Tên</ion-label>
-        <ion-input
-          placeholder="Nhập tên của bạn...."
-          [(ngModel)]="name"
-          name="name"
-          type="text"
-        ></ion-input>
+        <ion-input placeholder="Nhập tên của bạn...." [(ngModel)]="name" name="name" type="text"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -36,36 +29,16 @@
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating" class="custom-label"
-          >Chiều cao (cm)</ion-label
-        >
-        <ion-input
-          placeholder="Nhập chiều cao...."
-          [(ngModel)]="height"
-          name="height"
-          type="number"
-        ></ion-input>
+        <ion-label position="floating" class="custom-label">Chiều cao (cm)</ion-label>
+        <ion-input placeholder="Nhập chiều cao...." [(ngModel)]="height" name="height" type="number"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating" class="custom-label"
-          >Cân nặng (kg)</ion-label
-        >
-        <ion-input
-          placeholder="Nhập cân nặng..."
-          [(ngModel)]="weight"
-          name="weight"
-          type="number"
-        ></ion-input>
+        <ion-label position="floating" class="custom-label">Cân nặng (kg)</ion-label>
+        <ion-input placeholder="Nhập cân nặng..." [(ngModel)]="weight" name="weight" type="number"></ion-input>
       </ion-item>
 
-      <ion-button
-        class="ion-margin-top"
-        expand="full"
-        (click)="btnSubmit()"
-        color="dark"
-        shape="round"
-      >
+      <ion-button class="ion-margin-top" expand="full" (click)="btnSubmit()" color="dark" shape="round">
         Bắt đầu
       </ion-button>
     </ion-card-content>

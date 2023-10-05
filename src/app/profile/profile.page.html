@@ -1,91 +1,70 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Thông tin cá nhân </ion-title>
+<ion-content [fullscreen]="true">
+  <ion-toolbar style="height: 80px;">
+
   </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-card *ngIf="userInfo">
-    <ion-card-content class="ion-text-center">
-      <div class="avatar-container">
-        <ion-avatar>
-          <img
-            alt="Silhouette of a person's head"
-            src="../../assets/images/avt.png"
-          />
-        </ion-avatar>
-        <ion-card-subtitle>{{userInfo.name}}</ion-card-subtitle>
-      </div>
-    </ion-card-content>
-
-    <ion-card-content>
-      <ion-item>
-        <ion-label slot="start"><strong> Chỉ số BMI</strong></ion-label>
-        <ion-button expand="full" color="dark" shape="round" slot="end">
-          22.8
-        </ion-button>
-      </ion-item>
-
-      <ion-item *ngIf="checkBMI()">
-        <ion-label class="custom-label">Giới tính</ion-label>
-        <ion-select [(ngModel)]="userInfo.gender">
-          <ion-select-option value="male">Nam</ion-select-option>
-          <ion-select-option value="female">Nữ</ion-select-option>
-          <ion-select-option value="other">Khác</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item *ngIf="checkBMI()">
-        <ion-label position="floating" class="custom-label"
-          >Chiều cao (cm)</ion-label
-        >
-        <ion-input
-          placeholder="Nhập chiều cao...."
-          [(ngModel)]="userInfo.height"
-          name="height"
-          type="number"
-        ></ion-input>
-      </ion-item>
-
-      <ion-item *ngIf="checkBMI()">
-        <ion-label position="floating" class="custom-label"
-          >Cân nặng (kg)</ion-label
-        >
-        <ion-input
-          placeholder="Nhập cân nặng..."
-          [(ngModel)]="userInfo.weight"
-          name="weight"
-          type="number"
-        ></ion-input>
-      </ion-item>
-
-      <ion-button
-        class="ion-margin-top"
-        expand="full"
-        (click)="btnEditSubmit()"
-        color="dark"
-        shape="round"
-      >
-        Sửa thông tin
-      </ion-button>
-    </ion-card-content>
-
-    <ion-card-content>
-      <ion-item>
-        <ion-label slot="start">Trạng thái</ion-label>
-        <ion-label slot="end">Bình thường</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label slot="start">Lượng nước cần uống</ion-label>
-        <ion-label slot="end">1.2 L</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label slot="start">Thực phẩm cần kiêng</ion-label>
-        <ion-label slot="end">Không</ion-label>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-  <div *ngIf="!userInfo">
-    <p>Không có thông tin người dùng.</p>
+  <div align="center" style="margin-bottom: 12px;">
+    <ion-avatar style="width: 120px; height: 120px;">
+      <img src=" /assets/images/user.jpg" />
+    </ion-avatar>
+    <h3 class="name" style="margin-top: 20px; margin-bottom: 0;">{{user?.name}}</h3>
   </div>
+
+
+  <div class="bmi-content">
+    <ion-item lines="none">
+      <ion-label>
+        <h1>Chỉ số BMI</h1>
+        <p>Tính toàn thể trang sức khỏe</p>
+      </ion-label>
+      <div class="bmi-number">
+        20.43
+      </div>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <h2>Giới tính</h2>
+      </ion-label>
+      <ion-input type="text" class="bmi-input" value="{{user?.gender}}" slot="end"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <h2>Chiều cao</h2>
+      </ion-label>
+      <ion-input type="text" class="bmi-input" value="{{user?.height}}" slot="end"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <h2>Cân nặng</h2>
+      </ion-label>
+      <ion-input type="text" class="bmi-input" value="{{user?.weight}}" slot="end"></ion-input>
+    </ion-item>
+
+    <hr class="dashed">
+
+    <ion-item lines="none">
+      <ion-label>
+        <h2>Trạng thái</h2>
+      </ion-label>
+      <ion-input type="text" class="status-input" value="Bình thường" slot="end"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <h2>Lượng nước cần uống</h2>
+      </ion-label>
+      <ion-input type="text" class="status-input" value="Bình thường" slot="end"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <h2>Thực phẩm cần kiêng</h2>
+      </ion-label>
+      <ion-input type="text" class="status-input" value="Bình thường" slot="end"></ion-input>
+    </ion-item>
+  </div>
+
+
+  <ion-button (click)="showInfo()" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
+
 </ion-content>

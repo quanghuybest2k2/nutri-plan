@@ -8,7 +8,7 @@ import { UserInfo } from '../Models/User-Info.model';
 export class InfoService {
   private readonly USER_INFO_KEY = 'user_info';
 
-  constructor(private storageService: StorageService) {}
+  constructor(private storageService: StorageService) { }
   //  check
   isProvidedBMI(): boolean {
     const userInfo = this.storageService.get(this.USER_INFO_KEY);
