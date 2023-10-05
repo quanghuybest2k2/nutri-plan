@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInfo } from '../Models/User-Info.model';
 import { InfoService } from '../services/info.service';
 @Component({
   selector: 'app-profile',
@@ -9,18 +10,8 @@ export class ProfilePage implements OnInit {
 
 
   constructor(private infoService: InfoService) { }
-  user: {
-    name: string;
-    gender: string;
-    height: number;
-    weight: number;
-  } | undefined;
-  userProfile: [{
-    name: string;
-    gender: string;
-    height: number;
-    weight: number;
-  }] | null = this.infoService.getInfo();
+  user: UserInfo | undefined;
+  userProfile: UserInfo[] | null = this.infoService.getInfo();
   ngOnInit() {
     if (this.userProfile !== null) {
       this.user = this.userProfile[0]
