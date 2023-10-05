@@ -29,7 +29,7 @@ export class CategoryFoodPage {
     // Dữ liệu mẫu thức ăn với chuyên mục
     const foodItems = [
       { id: 1,
-        name: 'Bún riêu cua',
+        name: 'Bún riêu  ',
         category: 'Mặn',
         image: 'bunrieu.jpg',
         suitable: 'Gầy', 
@@ -57,7 +57,7 @@ export class CategoryFoodPage {
       10. Bún riêu cua thịt bò làm xong, bạn nên ăn nóng mới ngon nhất.
     `   },
       { id: 2, 
-        name: 'Cơm',
+        name: 'Cơm sườn ',
         category: 'Mặn',
         image: 'com.jpg',
         suitable: 'Gầy',
@@ -84,15 +84,15 @@ export class CategoryFoodPage {
       10.Pha chế nước mắm`,   
         calories: 18.5 },
       { id: 3, name: 'Gà nướng', category: 'Mặn', image: 'ganuong.jpg', suitable: 'Gầy', calories: 24 },
-      { id: 4, name: 'Bánh kem', category: 'Ngọt', image: 'banhkem.jpg', suitable: 'Ốm', calories: 18.5 },
-      { id: 5, name: 'Bún riêu cua', category: 'Mặn', image: 'bunrieu.jpg', suitable: 'Gầy', calories: 18.5 },
-      { id: 6, name: 'Khoai', category: 'Củ', image: 'che.jpg', suitable: 'Bình thường', calories: 23 },
-      { id: 7, name: 'Đậu đen', category: 'Củ', image: 'dauden.jpg', suitable: 'mập', calories: 23 },
-      { id: 8, name: 'Sữa', category: 'Ngọt', image: 'sua.jpg', suitable: 'ốm', calories: 18.5 },
-      { id: 9, name: 'Nước ép', category: 'Trái cây', image: 'bunrieu.jpg', suitable: 'Béo phì', bmi: 18.5 },
-      { id: 10, name: 'Cơm', category: 'Mặn', image: 'che.jpg', suitable: 'Bình thường', bmi: 18.5 },
-      { id: 11, name: 'Bơ', category: 'Trái cây', image: 'bo.jpg', suitable: 'mập', bmi: 18.5 },
-      { id: 12, name: 'Ngũ cốc', category: 'Trái cây', image: 'ngucoc.jpg', suitable: 'Bình thường, Ốm', bmi: 18.5 },
+      { id: 4, name: 'Bánh kem', category: 'Khai vị', image: 'banhkem.jpg', suitable: 'Ốm', calories: 18.5 },
+      { id: 5, name: 'Bún bò', category: 'Mặn', image: 'bunrieu.jpg', suitable: 'Gầy', calories: 18.5 },
+      { id: 6, name: 'Khoai', category: 'Khai vị', image: 'che.jpg', suitable: 'Bình thường', calories: 23 },
+      { id: 7, name: 'Đậu đen', category: 'Mặn', image: 'dauden.jpg', suitable: 'mập', calories: 23 },
+      { id: 8, name: 'Sữa', category: 'Eat-clean', image: 'sua.jpg', suitable: 'ốm', calories: 18.5 },
+      { id: 9, name: 'Nước ép', category: 'Eat-clean', image: 'nuocep.jpg', suitable: 'Béo phì', calories: 18.5 },
+      { id: 10, name: 'Cơm', category: 'Món chay', image: 'che.jpg', suitable: 'Bình thường', calories: 20 },
+      { id: 11, name: 'Bơ', category: 'Khai vị', image: 'bo.jpg', suitable: 'mập', calories: 25 },
+      { id: 12, name: 'Ngũ cốc', category: 'Eat-clean', image: 'ngucoc.jpg', suitable: 'Bình thường, Ốm', calories: 18.5 },
 
 
     ];
@@ -109,9 +109,9 @@ export class CategoryFoodPage {
     this.navCtrl.navigateForward(`/food-details/${foodItemId}`);
   }
   filterFoodItems() {
-    if (this.selectedSuitable) {
+    if (this.selectedCategory) {
       this.filteredFoodItems = this.foodItems.filter(
-        (food) => food.suitable === this.selectedSuitable
+        (food) => food.category === this.selectedCategory
       );
     } else {
       // Hiển thị tất cả thức ăn nếu không có chuyên mục nào được chọn

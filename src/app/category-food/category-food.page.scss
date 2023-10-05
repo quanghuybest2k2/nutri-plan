@@ -28,26 +28,26 @@
   #container a {
     text-decoration: none;
   }
-  /* Tùy chỉnh phần "Lọc" */
+ 
   .custom-filter-button {
-    background-color: #007bff; /* Màu nền của nút Lọc */
-    color: #fff; /* Màu chữ của nút Lọc */
-    border-radius: 10px; /* Bo tròn góc của nút Lọc */
-    margin-top: 10px; /* Khoảng cách từ trên xuống */
+    background-color: #007bff; 
+    color: #fff; 
+    border-radius: 10px; 
+    margin-top: 10px; 
   }
   
-  /* Tùy chỉnh phần "Select Category" */
+  
   .custom-select {
-    border: 2px solid #007bff; /* Đường viền của select box */
-    border-radius: 10px; /* Bo tròn góc của select box */
+    border: 2px solid #007bff; 
+    border-radius: 10px;
   }
   ion-searchbar {
-    /* Trong tệp CSS của trang hoặc tệp CSS toàn cầu */
-    width: 50%; /* Điều chỉnh chiều rộng theo ý muốn */
-    margin-left: auto; /* Đẩy ô tìm kiếm qua bên phải */
-    border-radius: 20px; /* Bo tròn các góc */
+   
+    width: 50%; 
+    margin-left: auto;
+    border-radius: 20px; 
   }
-  /* Tùy chỉnh danh sách thức ăn nổi bật */
+ 
   .featured-items {
     display: flex;
     flex-wrap: wrap;
@@ -55,19 +55,21 @@
   }
   
   .featured-item {
-    width: calc(33.33% - 5px); /* Độ rộng của mỗi thẻ, với khoảng cách 20px giữa chúng */
+    width: calc(33.33% - 5px); 
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
     transition: transform 0.2s ease-in-out;
     border-radius: 20px;
   }
   
   .featured-item:hover {
-    transform: translateY(-5px); /* Hiệu ứng nâng lên khi hover */
+    transform: translateY(-5px); 
   }
-  
+  .custom-segment-button {
+    flex-grow: 1;
+  }
   .featured-item img {
-    max-width: 200%;
+    max-width: 100%;
     height: auto;
   }
   
@@ -87,10 +89,49 @@
     color: #777;
   }
   .custom-button {
-    background-image: url('/assets/home.png'); /* Đường dẫn đến tệp hình ảnh trong thư mục tài sản */
-    background-size: cover; /* Đảm bảo hình ảnh nền bao phủ toàn bộ nút */
-    background-repeat: no-repeat; /* Không lặp lại hình ảnh nền */
-    background-position: center center; /* Hiển thị hình ảnh ở giữa nút */
-    color: transparent; /* Ẩn văn bản trong nút (nếu bạn không muốn hiển thị văn bản) */
-    text-shadow: none; /* Ẩn bóng chữ (nếu bạn không muốn hiển thị văn bản) */
+    background-image: url('/assets/home.png');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center center;
+    color: transparent; 
+    text-shadow: none; 
   }
+  ion-card {
+    width: 200px;
+  }
+  
+  ion-card img {
+
+    width: 100%;
+    height: auto;
+  }
+  
+  ion-card-title,
+  ion-card-subtitle,
+  ion-card-content {
+    font-size: 14px; 
+  }
+
+  ion-card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ion-card-subtitle {
+    flex: 1;
+    margin-top: 15px;
+  }
+  
+  .square-container {
+    margin-left:20px ;
+    width: 80px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+  }
+  
+  
