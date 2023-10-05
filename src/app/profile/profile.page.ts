@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { InfoService } from '../services/info.service';
-import { UserInfo } from '../Models/User-Info.model';
 import { Router } from '@angular/router';
+import { UserInfo } from '../Models/User-Info.model';
+import { InfoService } from '../services/info.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,12 +16,14 @@ export class ProfilePage implements OnInit {
     weight: 0,
   };
 
-  constructor(private infoService: InfoService, private router: Router) {}
+  bmi: number = Math.round(this.userInfo.weight / (this.userInfo.height * this.userInfo.height));
+  constructor(private infoService: InfoService, private router: Router) { }
 
   ngOnInit() {
     if (!this.infoService.isProvidedBMI()) {
       this.router.navigateByUrl('/bmi');
     }
+    console.log(this.userInfo.weight)
   }
   validator(): boolean {
     if (!this.userInfo.gender) {
@@ -56,6 +58,7 @@ export class ProfilePage implements OnInit {
     if (userInfos && userInfos.length > 0) {
       this.userInfo = userInfos[0];
     }
+    this.bmi = Math.round((this.userInfo.weight / (this.userInfo.height * this.userInfo.height)) * 100) / 100;
   }
 
   checkBMI(): boolean {
@@ -70,6 +73,7 @@ export class ProfilePage implements OnInit {
         this.userInfo.height,
         this.userInfo.weight
       );
+      this.bmi = Math.round((this.userInfo.weight / (this.userInfo.height * this.userInfo.height)) * 100) / 100;
     }
   }
 }
