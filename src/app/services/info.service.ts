@@ -7,7 +7,7 @@ import { StorageService } from './storage.service';
 export class InfoService {
   private readonly USER_INFO_KEY = 'user_info';
 
-  constructor(private storageService: StorageService) {}
+  constructor(private storageService: StorageService) { }
   //  check
   isProvidedBMI(): boolean {
     const userInfo = this.storageService.get(this.USER_INFO_KEY);
@@ -26,7 +26,12 @@ export class InfoService {
   }
 
   // Lấy thông tin người dùng từ local storage
-  getInfo(): string | null {
+  getInfo(): [{
+    name: string;
+    gender: string;
+    height: number;
+    weight: number;
+  }] | null {
     return this.storageService.get(this.USER_INFO_KEY);
   }
   // Xóa từ local storage
