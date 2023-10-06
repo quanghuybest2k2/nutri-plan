@@ -2,8 +2,13 @@
   <ion-toolbar style="height: 80px"> </ion-toolbar>
 
   <div align="center" style="margin-bottom: 12px">
-    <ion-avatar style="width: 120px; height: 120px">
+    <!-- <ion-avatar style="width: 120px; height: 120px">
       <img src=" /assets/images/user.jpg" />
+    </ion-avatar> -->
+    <ion-avatar style="width: 120px; height: 120px">
+      <img
+        [src]="userInfo.gender === 'male' ? '/assets/images/user.jpg' : '/assets/images/avt.png'"
+      />
     </ion-avatar>
     <h3 class="name" style="margin-top: 20px; margin-bottom: 0">
       {{userInfo.name}}
