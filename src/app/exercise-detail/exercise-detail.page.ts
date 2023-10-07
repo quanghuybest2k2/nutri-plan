@@ -5,6 +5,7 @@ import {
   ExerciseCategory,
 } from '../Models/exercise-category';
 import { ActivatedRoute } from '@angular/router';
+import { CountService } from '../services/count.service';
 
 @Component({
   selector: 'app-exercise-detail',
@@ -14,8 +15,19 @@ import { ActivatedRoute } from '@angular/router';
 export class ExerciseDetailPage implements OnInit {
   selectedCategory!: ExerciseCategory;
   selectedExercise!: Exercise;
+  count: number = 0;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private countService: CountService
+  ) {}
+
+  HanddleCount(parentId: number, exerciseId: number) {
+    this.count = this.countService.getCount(parentId, exerciseId);
+
+    // Tăng giá trị count lên 1
+    this.count = this.countService.increaseCount(parentId, exerciseId);
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
@@ -43,6 +55,8 @@ export class ExerciseDetailPage implements OnInit {
           console.error('Không tìm thấy bài tập với ID được cung cấp.');
           return;
         }
+        // xử lý count
+        this.HanddleCount(categoryId, exerciseId);
       } else {
         console.error('ID không hợp lệ.');
       }
