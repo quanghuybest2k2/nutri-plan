@@ -3,6 +3,10 @@
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.09);
 }
 
+.no-scroll .scroll-content {
+    overflow: hidden;
+}
+
 .bmi-number {
     margin: 1px 4px;
     padding: 8px 18px;
@@ -31,6 +35,25 @@ ion-input.bmi-input {
 
 }
 
+ion-input.status-input {
+
+
+    --padding-bottom: 8px;
+    --padding-top: 8px;
+    --padding-start: 12px;
+    box-sizing: border-box;
+    width: 180px;
+    margin: 0px;
+
+    font-weight: 400;
+    font-size: 12px;
+    border: 1px solid #f5f5f5;
+    line-height: 20px;
+    border-radius: 6px;
+
+}
+
+
 h1 {
     font-weight: bold;
     font-size: 18px;
@@ -42,6 +65,14 @@ h2 {
     font-size: 14px;
     line-height: 20px;
 
+}
+
+h2.bmi-label {
+    width: 90px;
+}
+
+h2.status-label {
+    width: 154px;
 }
 
 p {

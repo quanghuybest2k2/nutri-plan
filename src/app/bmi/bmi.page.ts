@@ -10,10 +10,10 @@ import { InfoService } from '../services/info.service';
 export class BMIPage implements OnInit {
   name: string = 'Nguyễn Văn A';
   gender: string = 'male';
-  height: number = 173;
+  height: number = 1.73;
   weight: number = 76;
 
-  constructor(private router: Router, private infoService: InfoService) {}
+  constructor(private router: Router, private infoService: InfoService) { }
 
   ngOnInit() {
     if (this.infoService.isProvidedBMI()) {
