@@ -21,8 +21,10 @@
   <ion-list>
     <ion-item>
       <ion-label class="ion-text-wrap"
-        ><span style="font-size: x-large">GYM</span> <br />Tập luyện/Danh
-        mục</ion-label
+        ><span style="font-size: x-large"
+          >{{ selectedCategory?.tenDanhMuc }}</span
+        >
+        <br />Tập luyện/Danh mục</ion-label
       >
       <ion-icon
         name="funnel-outline"
@@ -31,10 +33,10 @@
       ></ion-icon>
     </ion-item>
   </ion-list>
-  <ion-list>
+  <ion-list *ngIf="selectedCategory">
     <ion-card
-      *ngFor="let baiTap of listExercise"
-      [routerLink]="['/exercise-detail', baiTap.id]"
+      *ngFor="let baiTap of selectedCategory.exercises"
+      [routerLink]="['/exercise-detail',selectedCategory.id, baiTap.id]"
     >
       <ion-card-header>
         <img [src]="baiTap.hinhAnh" alt="Avatar" />
@@ -44,11 +46,11 @@
       <ion-card-content>
         <p>
           <ion-icon name="alarm-outline"></ion-icon>
-          {{baiTap.phut}} phút
+          {{ baiTap.phut }} phút
         </p>
         <p>
           <ion-icon name="bookmark-outline"></ion-icon>
-          Đốt {{baiTap.calo}} calo
+          Đốt {{ baiTap.calo }} calo
         </p>
       </ion-card-content>
     </ion-card>

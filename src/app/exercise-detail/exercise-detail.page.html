@@ -1,17 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button
-        defaultHref="/list-exercise"
-        icon="chevron-back-outline"
-      ></ion-back-button>
+      <ion-back-button icon="chevron-back-outline"></ion-back-button>
     </ion-buttons>
     <ion-title>Chi tiết bài tập</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <div class="card" *ngIf="exercise">
+  <div class="card" *ngIf="selectedExercise">
     <iframe
       width="100%"
       height="100%"
@@ -22,27 +19,31 @@
       allowfullscreen
     ></iframe>
     <div class="card-content">
-      <ion-card-subtitle>{{ exercise.ten }}</ion-card-subtitle>
-      <ion-card-content> {{ exercise.content }} </ion-card-content>
+      <ion-card-subtitle>{{ selectedExercise.ten }}</ion-card-subtitle>
+      <ion-card-content> {{ selectedExercise.content }} </ion-card-content>
     </div>
-    <!-- danh sách các bài tập -->
+    <!-- Danh sách các bài tập -->
     <ion-list>
-      <!-- chỉ hiển thị 3 bài thôi -->
+      <!-- Chỉ hiển thị 3 bài thôi -->
       <ion-item
-        *ngFor="let exercise of listExercise | slice:0:3"
-        [routerLink]="['/exercise-detail', exercise.id]"
+        *ngFor="let exercise of selectedCategory.exercises | slice:0:3"
+        [routerLink]="['/exercise-detail', selectedCategory.id, exercise.id]"
       >
         <ion-thumbnail slot="start">
           <img [src]="exercise.hinhAnh" alt="{{ exercise.ten }}" />
         </ion-thumbnail>
         <ion-label>
-          <h2>{{exercise.ten}}</h2>
+          <h2>{{ exercise.ten }}</h2>
           <p>{{ exercise.moTa }}</p>
         </ion-label>
       </ion-item>
     </ion-list>
 
-    <ion-button expand="full" color="dark" routerLink="/list-exercise">
+    <ion-button
+      expand="full"
+      color="dark"
+      [routerLink]="['/list-exercise', selectedCategory.id]"
+    >
       Xem Thêm
     </ion-button>
   </div>
