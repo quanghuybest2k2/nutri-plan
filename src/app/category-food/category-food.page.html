@@ -47,41 +47,54 @@
     </ion-row>
   </ion-grid>
   
-  <h1 >Nổi Bật</h1>
+  <h1>Nổi Bật</h1>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
         <ion-segment scrollable>
-          <ion-segment-button *ngFor="let featuredItem of featuredFoodItems; let i = index" value="{{ featuredItem.id }}">
+          <ion-segment-button *ngFor="let foodItem of featuredFoodItems; let i = index" value="{{ foodItem.id }}" [routerLink]="['/food-details', foodItem.id]">
             <ion-card class="ion-no-margin">
-              <img [src]="featuredItem.imageUrl">
+              <img [src]="'assets/images/' + foodItem.image">
               <ion-card-header class="ion-align-items-start ion-no-padding">
-                <ion-card-title>{{ featuredItem.name }}</ion-card-title>
-                <ion-card-subtitle>{{ featuredItem.category }}</ion-card-subtitle>
+                <ion-card-title>{{ foodItem.name }}</ion-card-title>
+                <ion-card-subtitle>{{ foodItem.category }}</ion-card-subtitle>
               </ion-card-header>
+              <ion-card-content class="ion-no-padding">
+                <ion-row class="ion-justify-content-between">
+                  <p>{{ foodItem.calories }} calories</p>
+                  <p>{{ foodItem.quantity }} grams</p>
+                </ion-row>
+              </ion-card-content>
             </ion-card>
           </ion-segment-button>
         </ion-segment>
       </ion-col>
     </ion-row>
   </ion-grid>
-  
+
+  <!-- Phần Thức ăn cần tránh -->
   <h1>Thức ăn cần tránh</h1>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
         <ion-segment scrollable>
-          <ion-segment-button *ngFor="let avoidItem of avoidFoodItems; let i = index" value="{{ avoidItem['id'] }}">
+          <ion-segment-button *ngFor="let foodItem of avoidFoodItems; let i = index" value="{{ foodItem.id }}" [routerLink]="['/food-details', foodItem.id]">
             <ion-card class="ion-no-margin">
-              <img [src]="avoidItem.imageUrl" />
+              <img [src]="'assets/images/' + foodItem.image">
               <ion-card-header class="ion-align-items-start ion-no-padding">
-                <ion-card-title>{{ avoidItem.name }}</ion-card-title>
-                <ion-card-subtitle>{{ avoidItem.category }}</ion-card-subtitle>
+                <ion-card-title>{{ foodItem.name }}</ion-card-title>
+                <ion-card-subtitle>{{ foodItem.category }}</ion-card-subtitle>
               </ion-card-header>
+              <ion-card-content class="ion-no-padding">
+                <ion-row class="ion-justify-content-between">
+                  <p>{{ foodItem.calories }} calories</p>
+                  <p>{{ foodItem.quantity }} grams</p>
+                </ion-row>
+              </ion-card-content>
             </ion-card>
           </ion-segment-button>
         </ion-segment>
       </ion-col>
     </ion-row>
-  </ion-grid>  
+  </ion-grid> 
 </ion-content>
