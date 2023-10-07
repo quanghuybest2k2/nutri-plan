@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./bmi/bmi.module').then((m) => m.BMIPageModule),
   },
   {
-    path: 'list-exercise',
+    path: 'list-exercise/:id',
     loadChildren: () =>
       import('./list-exercise/list-exercise.module').then(
         (m) => m.ListExercisePageModule
@@ -38,7 +38,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'exercise-detail/:id',
+    path: 'exercise-detail/:parentId/:id',
     loadChildren: () =>
       import('./exercise-detail/exercise-detail.module').then(
         (m) => m.ExerciseDetailPageModule

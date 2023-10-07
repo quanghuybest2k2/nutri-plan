@@ -13,10 +13,7 @@
       <ion-col size="12">
         <h2 class="ion-margin-bottom">Tập nhiều nhất</h2>
         <ion-segment scrollable>
-          <ion-segment-button
-            *ngFor="let category of listExercise"
-            value="{{category.id}}"
-          >
+          <ion-segment-button *ngFor="let category of listExercise">
             <ion-card
               class="ion-no-margin custom-card"
               *ngIf="category.exercises.length > 0"
@@ -24,7 +21,7 @@
               <img [src]="category.exercises[0].hinhAnh" class="card-image" />
               <ion-card-header class="ion-align-items-start ion-no-padding">
                 <ion-card-title class="card-title"
-                  >{{category.tenDanhMuc}}</ion-card-title
+                  >{{category.exercises[0].ten}}</ion-card-title
                 >
               </ion-card-header>
               <ion-card-content class="ion-no-padding">
@@ -44,6 +41,7 @@
             size-md="4"
             size-lg="3"
             *ngFor="let category of listExercise"
+            [routerLink]="['/list-exercise', category.id]"
           >
             <ion-card
               class="ion-no-margin custom-card"
