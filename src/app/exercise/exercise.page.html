@@ -13,21 +13,22 @@
       <ion-col size="12">
         <h2 class="ion-margin-bottom">Tập nhiều nhất</h2>
         <ion-segment scrollable>
-          <ion-segment-button *ngFor="let category of listExercise">
-            <ion-card
-              class="ion-no-margin custom-card"
-              *ngIf="category.exercises.length > 0"
+          <!-- [routerLink]="['/exercise-detail', listExercise[i].id, exercise.id]" -->
+          <ion-segment-button
+            *ngFor="let exercise of topExercises | slice: 0:4; let i = index"
+          >
             >
-              <img [src]="category.exercises[0].hinhAnh" class="card-image" />
+            <ion-card class="ion-no-margin custom-card">
+              <img [src]="exercise.hinhAnh" class="card-image" />
               <ion-card-header class="ion-align-items-start ion-no-padding">
                 <ion-card-title class="card-title"
-                  >{{category.exercises[0].ten}}</ion-card-title
+                  >{{exercise.ten}}</ion-card-title
                 >
               </ion-card-header>
               <ion-card-content class="ion-no-padding">
                 <ion-row class="ion-justify-content-between">
                   <p class="card-description">
-                    Đốt cháy {{category.exercises[0].calo}} calo
+                    Đốt cháy {{exercise.calo}} calo
                   </p>
                 </ion-row>
               </ion-card-content>
