@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     if (!this.infoService.isProvidedBMI()) {
-      this.router.navigateByUrl('/bmi');
+      this.router.navigateByUrl('/intro');
     }
   }
   calculateProgress(value: number): number {

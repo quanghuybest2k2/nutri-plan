@@ -1,0 +1,36 @@
+ion-content {
+    --padding-top: 80px;
+    --padding-start: 24px;
+    --padding-end: 24px;
+}
+.logo {
+    width: 244px;
+    height: 80px;
+    margin: 0 auto 40px auto; 
+    display: block;
+    margin-bottom: 40px; 
+}
+
+.character {
+    width: 300px;
+    height: 344px;
+    margin-bottom: 40px; 
+    margin: 0 auto 40px auto; 
+    display: block;
+    margin-bottom: 40px;
+}
+ion-button {
+    text-decoration-color: #959595;
+    text-transform: lowercase !important;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    margin: 0 auto 40px auto;
+    display: block;
+    
+}
+
+ion-icon{
+    color: #959595;
+    margin: 4px;
+    display: block;
+}

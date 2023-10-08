@@ -13,7 +13,7 @@ export class BMIPage implements OnInit {
   height: number = 1.73;
   weight: number = 76;
 
-  constructor(private router: Router, private infoService: InfoService) { }
+  constructor(private router: Router, private infoService: InfoService) {}
 
   ngOnInit() {
     if (this.infoService.isProvidedBMI()) {
@@ -55,6 +55,7 @@ export class BMIPage implements OnInit {
         this.height,
         this.weight
       );
+
       this.router.navigateByUrl('/home');
     }
   }
