@@ -7,6 +7,13 @@
     top: 50%;
     transform: translateY(-50%);
   }
+  body {
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  h1 {
+    font-family: 'Poppins', sans-serif;
+  }
   
   #container strong {
     font-size: 20px;
@@ -17,7 +24,7 @@
     font-size: 16px;
     line-height: 22px;
   
-    color: #8c8c8c;
+    color: #000000;
   
     margin: 0;
   }
@@ -106,6 +113,7 @@
   ion-card-subtitle,
   ion-card-content {
     font-size: 14px; 
+    font-family: 'Raleway', sans-serif;
   }
 
   ion-card-header {
@@ -131,7 +139,7 @@
     background-color: #D9D9D9;
   }
 ion-header {
-  background-color: #007bff; 
+  background-color: #3c5b7c; 
   color: #fff;
   font-size: 20px; 
   font-weight: bold;
@@ -146,7 +154,7 @@ ion-segment {
   margin: 0px 0;
 }
 ion-segment-button {
-  color: #fdfdfd;
+  color: #000000;
   border: none; 
   border-radius: 0; 
   font-weight: bold; 
@@ -155,7 +163,7 @@ ion-segment-button {
 
 ion-segment-button.segment-activated {
   background-color: #007bff;
-  color: #fff; 
+  color: #000000; 
 }
 
 ion-card {
@@ -199,8 +207,8 @@ ion-searchbar {
   --background: transparent; 
   --searchbar-input-border-radius: 20px;
   --searchbar-input-background-color: rgba(0, 0, 0, 0.1);
-  --searchbar-input-color: #333;
-  --placeholder-color: #999; 
+  --searchbar-input-color: #000000;
+  --placeholder-color: #000000; 
 }
 
 ion-searchbar .searchbar-search-icon {
