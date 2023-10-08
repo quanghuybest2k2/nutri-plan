@@ -1,10 +1,6 @@
-<ion-header>
-  <ion-toolbar class="ion-margin-top">
-    <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="ion-padding">
+  <!-- search -->
+  <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
   <ion-text class="ion-text-center" color="dark">
     <h1>Tập luyện</h1>
   </ion-text>
@@ -13,12 +9,10 @@
       <ion-col size="12">
         <h2 class="ion-margin-bottom">Tập nhiều nhất</h2>
         <ion-segment scrollable>
-          <!-- [routerLink]="['/exercise-detail', listExercise[i].id, exercise.id]" -->
           <ion-segment-button
             *ngFor="let exercise of topExercises | slice: 0:4; let i = index"
           >
-            >
-            <ion-card class="ion-no-margin custom-card">
+            <ion-card class="custom-card">
               <img [src]="exercise.hinhAnh" class="card-image" />
               <ion-card-header class="ion-align-items-start ion-no-padding">
                 <ion-card-title class="card-title"
@@ -35,6 +29,7 @@
             </ion-card>
           </ion-segment-button>
         </ion-segment>
+
         <h2 class="ion-margin-top ion-margin-bottom">Danh mục</h2>
         <ion-row>
           <ion-col
@@ -45,7 +40,7 @@
             [routerLink]="['/list-exercise', category.id]"
           >
             <ion-card
-              class="ion-no-margin custom-card"
+              class="ion-no-margin custom-card-category"
               [style.background-color]="getRandomColor()"
             >
               <ion-card-header class="ion-align-items-center ion-no-padding">
