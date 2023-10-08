@@ -1,0 +1,25 @@
+ion-content {
+    --padding-top: 100px;
+    --padding-start: 24px;
+    --padding-end: 24px;
+}
+ion-img {
+    margin-bottom: 40px; 
+}
+.title{
+    text-align: center;
+}
+
+h1, p {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+p{
+    font-size: 16px;
+    color: #959595;
+}
