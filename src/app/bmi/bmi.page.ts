@@ -55,8 +55,7 @@ export class BMIPage implements OnInit {
         this.height,
         this.weight
       );
-
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/loading');
     }
   }
 }
