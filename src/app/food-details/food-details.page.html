@@ -41,8 +41,11 @@
         <div class="recipe">
           <h3>Công thức nấu ăn</h3>
           <div class="recipe-content">
-            <p class="l" [innerHTML]="foodItem.recipe"></p>
-            <p [innerHTML]="foodItem.work"></p>
+            <p
+              class="l"
+              [innerHTML]="foodItem.recipe || 'Chưa có nguyên liệu'"
+            ></p>
+            <p [innerHTML]="foodItem.work || 'Chưa có cách làm'"></p>
           </div>
         </div>
       </div>
