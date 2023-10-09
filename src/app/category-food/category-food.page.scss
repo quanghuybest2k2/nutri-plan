@@ -201,7 +201,7 @@
 // }
 // ion-searchbar {
 //   width: 50%; 
-//   margin-left: auto;
+//   
 //   border-radius: 20px; 
 //   --border-width: 0; 
 //   --background: transparent; 
@@ -241,11 +241,20 @@ h3{
 }
 
 ion-searchbar{
+  width: 50%; 
+  border-radius: 20px; 
+  --border-width: 0; 
+  --background: transparent; 
+  --searchbar-input-border-radius: 20px;
+  --searchbar-input-background-color: rgba(0, 0, 0, 0.1);
+  --searchbar-input-color: #000000;
+  --placeholder-color: #000000; 
+  --searchbar-input-border-radius: 20px;
   --box-shadow: none !important;
   font-family: 'Raleway', sans-serif;
   outline: 1px solid #ccc;
-  border-radius: 8px;
   margin-bottom: 36px;
+  margin-left: 200px;
 }
 
 ion-grid{
@@ -376,10 +385,10 @@ ion-segment-button {
   text-align: center !important;
 }
 
-.nutri ion-card {
+ion-card {
   width: 132px;
   box-shadow: none;
-  border: none;
+  border: 20px;
   margin-left: 4px;
 }
 
@@ -416,6 +425,7 @@ ion-segment-button {
 }
 
 .exc ion-card img {
+  border-radius: 20px;
   display: block;
   width: 100%;
   object-fit: cover;

@@ -10,23 +10,12 @@
 <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
 <h1>Dinh Dưỡng</h1>
 <ion-segment [(ngModel)]="selectedCategory" (ionChange)="filterFoodItems()">
-  <ion-segment-button value="">
-    ALL
-  </ion-segment-button>
-  <ion-segment-button value="Khai vị">
-    Khai vị
-  </ion-segment-button>
-  <ion-segment-button value="Món chay">
-    Chay
-  </ion-segment-button>
-  <ion-segment-button value="Mặn">
-    Mặn
-  </ion-segment-button>
-  <ion-segment-button value="Eat-clean">
-    Eat-clean
-  </ion-segment-button>
+  <ion-segment-button value="">ALL</ion-segment-button>
+  <ion-segment-button value="Khai vị">Khai vị</ion-segment-button>
+  <ion-segment-button value="Món chay">Chay</ion-segment-button>
+  <ion-segment-button value="Mặn">Mặn</ion-segment-button>
+  <ion-segment-button value="Eat-clean">Eat-clean</ion-segment-button>
 </ion-segment>
-
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
@@ -37,7 +26,7 @@
               <ion-card-header class="ion-align-items-start">
                 <ion-card-subtitle>{{ foodItem.name }}</ion-card-subtitle>
                 <div class="square-container">
-                  <p>{{ foodItem.calories }}</p>
+                  <p>{{ foodItem.calories }} calo</p>
                 </div>
               </ion-card-header>
             </ion-card>
