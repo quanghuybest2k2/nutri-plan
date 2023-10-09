@@ -72,13 +72,12 @@
           <ion-segment scrollable>
             <ion-segment-button
               *ngFor="let baiViet of baiViet let i = index"
-              value="{{ baiViet.id }}"
-            >
+              value="{{ baiViet.id }}">
               <ion-card>
                 <img [src]="baiViet.imageUrl" />
                 <ion-card-header class="ion-align-items-center ion-no-padding">
-                  <ion-card-title>{{ baiViet.name }}</ion-card-title>
                   <ion-card-subtitle>{{ baiViet.category }}</ion-card-subtitle>
+                  <ion-card-title>{{ baiViet.name }}</ion-card-title>
                 </ion-card-header>
               </ion-card>
             </ion-segment-button>
@@ -99,7 +98,7 @@
               value="{{ dinhDuong.id }}"
             >
               <ion-card>
-                <img [src]="dinhDuong.imageUrl" />
+                <img [src]="dinhDuong.imageUrl"  />
                 <ion-card-header class="ion-align-items-start ion-no-padding">
                   <ion-card-title>{{ dinhDuong.name }}</ion-card-title>
                   <ion-card-subtitle>{{ dinhDuong.describe}}</ion-card-subtitle>
@@ -119,20 +118,19 @@
         <ion-col size="12">
           <ion-segment scrollable>
             <!-- loop -->
-            <ion-segment-button>
+            <ion-segment-button
+              *ngFor="let exercise of topExercises | slice: 0:4; let i = index"
+            >
               <ion-card class="ion-no-margin">
-                <img
-                  src="https://swequity.vn/wp-content/uploads/2019/06/tap-gym-tang-chieu-cao.jpg"
-                  alt="tap luyen"
-                />
+                <img [src]="exercise.hinhAnh" alt="{{exercise.ten}}" />
                 <ion-card-header class="ion-align-items-start ion-no-padding">
-                  <ion-card-title>aada</ion-card-title>
-                  <ion-card-subtitle>adadadada</ion-card-subtitle>
+                  <ion-card-title>{{exercise.ten}}</ion-card-title>
+                  <ion-card-subtitle>{{exercise.moTa}}</ion-card-subtitle>
                 </ion-card-header>
                 <ion-card-content class="ion-no-padding">
                   <ion-row class="ion-justify-content-between">
-                    <p>15 phút</p>
-                    <p>Đốt 200 calories</p>
+                    <p>{{exercise.phut}} phút</p>
+                    <p>Đốt {{exercise.calo}} calories</p>
                   </ion-row>
                 </ion-card-content>
               </ion-card>

@@ -5,37 +5,37 @@ import { StorageService } from './storage.service';
   providedIn: 'root',
 })
 export class CountService {
-  private readonly COUNT_PREFIX = 'exercise_';
+  private readonly COUNTS_KEY = 'counts';
 
   constructor(private storageService: StorageService) {}
 
-  // Lấy giá trị count từ localStorage
-  getCount(parentId: number, exerciseId: number): number {
-    const storedCount = this.storageService.get(
-      `${this.COUNT_PREFIX}${parentId}_${exerciseId}`
-    );
-    return storedCount ? parseInt(storedCount, 10) : 0;
+  // Lấy mảng các giá trị count từ local storage
+  getCounts():
+    | { parentId: number; exerciseId: number; count: number }[]
+    | null {
+    return this.storageService.get(this.COUNTS_KEY);
   }
 
-  // Tăng lên 1
-  increaseCount(parentId: number, exerciseId: number): number {
-    let count = this.getCount(parentId, exerciseId);
-    count++;
-    this.storageService.set(
-      `${this.COUNT_PREFIX}${parentId}_${exerciseId}`,
-      count
+  // Lưu giá trị count vào mảng
+  saveCount(parentId: number, exerciseId: number, count: number): void {
+    const countsArray = this.storageService.get(this.COUNTS_KEY) || [];
+
+    const existingIndex = countsArray.findIndex(
+      (item: any) =>
+        item.parentId === parentId && item.exerciseId === exerciseId
     );
-    return count;
+
+    if (existingIndex !== -1) {
+      countsArray[existingIndex].count = count;
+    } else {
+      countsArray.push({ parentId, exerciseId, count });
+    }
+
+    this.storageService.set(this.COUNTS_KEY, countsArray);
   }
 
-  // Giảm đi 1
-  decreaseCount(parentId: number, exerciseId: number): number {
-    let count = this.getCount(parentId, exerciseId);
-    count = Math.max(count - 1, 0);
-    this.storageService.set(
-      `${this.COUNT_PREFIX}${parentId}_${exerciseId}`,
-      count
-    );
-    return count;
+  // Xóa giá trị count từ mảng
+  clearCounts(): void {
+    this.storageService.remove(this.COUNTS_KEY);
   }
 }

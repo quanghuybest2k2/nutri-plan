@@ -6,6 +6,7 @@ import {
   ExerciseCategory,
   Categories,
 } from '../Models/exercise-category';
+import { CountService } from '../services/count.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,14 @@ import {
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  constructor(private router: Router, private infoService: InfoService) {}
+  listExercise: ExerciseCategory[] = Categories;
+  topExercises: Exercise[] = [];
+
+  constructor(
+    private router: Router,
+    private infoService: InfoService,
+    private countService: CountService
+  ) {}
 
   baiViet: any[] = [
     {
@@ -93,5 +101,32 @@ export class HomePage implements OnInit {
     if (!this.infoService.isProvidedBMI()) {
       this.router.navigateByUrl('/intro');
     }
+    this.getExercisePopular();
+  }
+  getExercisePopular() {
+    const countsArray = this.countService.getCounts() ?? [];
+
+    // Sắp xếp mảng counts theo số lượng count giảm dần
+    countsArray.sort((a, b) => b.count - a.count);
+
+    // Lấy danh sách các bài tập có số lượng count lớn nhất từ Categories
+    this.topExercises = countsArray
+      .map((item) => {
+        // Tìm bài tập từ Categories theo parentId và exerciseId
+        const category = Categories.find((cat) => cat.id === item.parentId);
+        if (category) {
+          // Tìm bài tập từ exercises theo exerciseId
+          const exercise = category.exercises.find(
+            (ex) => ex.id === item.exerciseId
+          );
+          if (exercise) {
+            // Trả về một bản sao của bài tập với số lượng count được cập nhật
+            return { ...exercise, count: item.count };
+          }
+        }
+        return null;
+      })
+      // Lọc bỏ các bài tập không tìm thấy hoặc không hợp lý
+      .filter((item) => item !== null) as Exercise[];
   }
 }
