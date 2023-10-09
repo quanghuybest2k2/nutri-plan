@@ -30,9 +30,9 @@ export class CategoryFoodPage {
   loadFoodItems() {
     const foodItems = [
       { id: 1,
-        name: 'Bún riêu cua',
+        name: 'Bún riêu 1',
         category: 'Mặn',
-        image: 'bunrieu.jpg',
+        image: 'https://i.pinimg.com/236x/28/54/64/2854647fe2bb9ea2708c7ee2b3d31613.jpg',
         suitable: 'Gầy', 
         calories: 18.5,
         recipe:`
@@ -58,9 +58,9 @@ export class CategoryFoodPage {
       10. Bún riêu cua thịt bò làm xong, bạn nên ăn nóng mới ngon nhất.
     `   },
       { id: 2, 
-        name: 'Cơm',
+        name: 'Bún riêu 2',
         category: 'Mặn',
-        image: 'com.jpg',
+        image: 'https://i.pinimg.com/236x/8b/33/ec/8b33ecf95cfcea0a130ae19bb064cbb1.jpg',
         suitable: 'Gầy',
         recipe:`
         Nguyên liệu:
@@ -85,9 +85,9 @@ export class CategoryFoodPage {
       10.Pha chế nước mắm`,   
         calories: 18.5 },
       {  id: 3,
-        name: 'Khoai Tây Chiên',
+        name: 'Bún riêu 3',
         category: 'Mặn',
-        image: 'khoaitaychienn.jpg',
+        image: 'https://i.pinimg.com/236x/28/54/64/2854647fe2bb9ea2708c7ee2b3d31613.jpg',
         suitable: 'Bất kỳ',
         calories: 220,
         recipe: `
@@ -103,18 +103,18 @@ export class CategoryFoodPage {
           3. Cho khoai tây vào dầu nóng và chiên đến khi chúng có màu vàng đẹp.
           4. Gắp khoai tây ra, để ráo dầu thừa, và gia vị với muối và tiêu.
           5. Món khoai tây chiên sẽ ngon nhất khi còn nóng.` },
-      { id: 4, name: 'Bánh kem', category: 'Ngọt', image: 'banhkem.jpg', suitable: 'Ốm', calories: 18.5 },
-      { id: 5, name: 'Bún riêu cua', category: 'Mặn', image: 'bunrieu.jpg', suitable: 'Gầy', calories: 18.5 },
-      { id: 6, name: 'Khoai', category: 'Củ', image: 'che.jpg', suitable: 'Bình thường', calories: 23 },
-      { id: 7, name: 'Đậu đen', category: 'Củ', image: 'dauden.jpg', suitable: 'mập', calories: 23 },
-      { id: 8, name: 'Sữa', category: 'Ngọt', image: 'sua.jpg', suitable: 'ốm', calories: 18.5 },
-      { id: 9, name: 'Nước ép', category: 'Trái cây', image: 'bunrieu.jpg', suitable: 'Béo phì', calories: 18.5 },
-      { id: 10, name: 'Cơm', category: 'Mặn', image: 'che.jpg', suitable: 'Bình thường', calories: 18.5 },
+      { id: 4, name: 'Bún riêu cua', category: 'Ngọt', image: 'https://i.pinimg.com/236x/28/54/64/2854647fe2bb9ea2708c7ee2b3d31613.jpg', suitable: 'Ốm', calories: 18.5 },
+      { id: 5, name: 'Bún riêu cua', category: 'Mặn', image: 'https://i.pinimg.com/236x/8b/33/ec/8b33ecf95cfcea0a130ae19bb064cbb1.jpg', suitable: 'Gầy', calories: 18.5 },
+      { id: 6, name: 'Bún riêu cua', category: 'Củ', image: 'https://i.pinimg.com/236x/28/54/64/2854647fe2bb9ea2708c7ee2b3d31613.jpg', suitable: 'Bình thường', calories: 23 },
+      { id: 7, name: 'Bún riêu cua', category: 'Củ', image: 'https://i.pinimg.com/236x/8b/33/ec/8b33ecf95cfcea0a130ae19bb064cbb1.jpg', suitable: 'mập', calories: 23 },
+      { id: 8, name: 'Bún riêu cua', category: 'Ngọt', image: 'https://i.pinimg.com/236x/28/54/64/2854647fe2bb9ea2708c7ee2b3d31613.jpg', suitable: 'ốm', calories: 18.5 },
+      { id: 9, name: 'Bún riêu cua', category: 'Trái cây', image: 'https://i.pinimg.com/236x/8b/33/ec/8b33ecf95cfcea0a130ae19bb064cbb1.jpg', suitable: 'Béo phì', calories: 18.5 },
+      { id: 10, name: 'Bún riêu cua', category: 'Mặn', image: 'https://i.pinimg.com/236x/28/54/64/2854647fe2bb9ea2708c7ee2b3d31613.jpg', suitable: 'Bình thường', calories: 18.5 },
       {
         id: 11,
-        name: 'Đậu Đen Xào Thịt Bò',
+        name: 'Bún riêu cua',
         category: 'Mặn',
-        image: 'daudenxaothitbo.jpg',
+        image: 'https://i.pinimg.com/236x/8b/33/ec/8b33ecf95cfcea0a130ae19bb064cbb1.jpg',
         suitable: 'Bất kỳ',
         calories: 320,
         recipe: `
@@ -136,13 +136,22 @@ export class CategoryFoodPage {
           5. Món đậu đen xào thịt bò sẽ ngon khi còn nóng.`
       }
       ,
-      { id: 12, name: 'Bơ', category: 'Trái cây', image: 'dauden.jpg', suitable: 'mập',calories: 350, bmi: 18.5, item:'Nổi Bật' },
-      { id: 13, name: 'Bơ', category: 'Trái cây', image: 'che.jpg', suitable: 'mập',calories: 400, bmi: 18.5, item:'Nổi Bật' },
-      { id: 13, name: 'Bơ', category: 'Trái cây', image: 'banhkem.jpg', suitable: 'mập', calories: 520,bmi: 18.5, item:'Nổi Bật' },
-      { id: 14, name: 'Khoai tây chiên', category: 'Thức ăn nhanh', image: 'khoaitaychienn.jpg', calories: 550,suitable: 'mập', bmi: 18.5, item:'Thức ăn cần tránh' },
-      { id: 15, name: 'Thức ăn nhanh', category: 'Thức ăn nhanh', image: 'thucandochai1.jpg',calories: 620, suitable: 'mập', bmi: 18.5, item:'Thức ăn cần tránh' },
-      { id: 16, name: 'Đồ hộp', category: 'Đồ hộp', image: 'thucandochai2.jpg', suitable: 'mập',calories: 6000, bmi: 18.5, item:'Thức ăn cần tránh' },
-      { id: 17, name: 'Hamberger', category: 'Thức ăn nhanh', image: 'thucandochai1.jpg', calories: 220,suitable: 'mập', bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 14, name: 'Nổi bật 1', category: 'Trái cây', image: 'https://i.pinimg.com/564x/bd/e3/43/bde34376cd2d7b45a977fc1b71ffd289.jpg',calories: 350, bmi: 18.5, item:'Nổi Bật' },
+      { id: 13, name: 'Nổi bật 2', category: 'Trái cây', image: 'https://i.pinimg.com/736x/08/82/9a/08829a909030989c020effb6bd505ea9.jpg',calories: 400, bmi: 18.5, item:'Nổi Bật' },
+      { id: 15, name: 'Nổi bật 3', category: 'Trái cây', image: 'https://i.pinimg.com/736x/08/82/9a/08829a909030989c020effb6bd505ea9.jpg',calories: 400, bmi: 18.5, item:'Nổi Bật' },
+      { id: 12, name: 'Nổi bật 4', category: 'Trái cây', image: 'https://i.pinimg.com/564x/bd/e3/43/bde34376cd2d7b45a977fc1b71ffd289.jpg',calories: 350, bmi: 18.5, item:'Nổi Bật' },
+      { id: 16, name: 'Nổi bật 5', category: 'Trái cây', image: 'https://i.pinimg.com/564x/bd/e3/43/bde34376cd2d7b45a977fc1b71ffd289.jpg',calories: 350, bmi: 18.5, item:'Nổi Bật' },
+      { id: 17, name: 'Nổi bật 6', category: 'Trái cây', image: 'https://i.pinimg.com/736x/08/82/9a/08829a909030989c020effb6bd505ea9.jpg',calories: 400, bmi: 18.5, item:'Nổi Bật' },
+      { id: 18, name: 'Thức ăn nhanh', category: 'Thức ăn nhanh', image: 'https://i.pinimg.com/236x/c0/09/aa/c009aa00b788f8b409e3681072196ccc.jpg', calories: 55, bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 19, name: 'Thức ăn nhanh', category: 'Thức ăn nhanh', image: 'https://i.pinimg.com/236x/9c/e3/3c/9ce33cc881f8de9957df7ea71ba860dc.jpg',calories: 620, bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 20, name: 'Thức ăn nhanh', category: 'Thức ăn nhanh', image: 'https://i.pinimg.com/236x/c0/09/aa/c009aa00b788f8b409e3681072196ccc.jpg', calories: 55, bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 21, name: 'Thức ăn nhanh', category: 'Thức ăn nhanh', image: 'https://i.pinimg.com/236x/9c/e3/3c/9ce33cc881f8de9957df7ea71ba860dc.jpg',calories: 620, bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 22, name: 'Thức ăn nhanh', category: 'Thức ăn nhanh', image: 'https://i.pinimg.com/236x/c0/09/aa/c009aa00b788f8b409e3681072196ccc.jpg', calories: 55, bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 23, name: 'Thức ăn nhanh', category: 'Thức ăn nhanh', image: 'https://i.pinimg.com/236x/9c/e3/3c/9ce33cc881f8de9957df7ea71ba860dc.jpg',calories: 620, bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 24, name: 'Thức ăn nhanh', category: 'Thức ăn nhanh', image: 'https://i.pinimg.com/236x/c0/09/aa/c009aa00b788f8b409e3681072196ccc.jpg', calories: 55, bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 25, name: 'Thức ăn nhanh', category: 'Thức ăn nhanh', image: 'https://i.pinimg.com/236x/9c/e3/3c/9ce33cc881f8de9957df7ea71ba860dc.jpg',calories: 620, bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 26, name: 'Thức ăn nhanh', category: 'Thức ăn nhanh', image: 'https://i.pinimg.com/236x/c0/09/aa/c009aa00b788f8b409e3681072196ccc.jpg', calories: 55, bmi: 18.5, item:'Thức ăn cần tránh' },
+      { id: 27, name: 'Thức ăn nhanh', category: 'Thức ăn nhanh', image: 'https://i.pinimg.com/236x/9c/e3/3c/9ce33cc881f8de9957df7ea71ba860dc.jpg',calories: 620, bmi: 18.5, item:'Thức ăn cần tránh' },
       
     ];
     

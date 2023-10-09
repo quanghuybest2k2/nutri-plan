@@ -1,72 +1,147 @@
 <ion-content [fullscreen]="true">
 
-
+  <!-- Header -->
   <div class="header-label">
     <ion-label>
       <h1>Chế độ</h1>
       <p>Tự xây dựng chế độ cho bản thân</p>
     </ion-label>
   </div>
+
+  <!-- Biểu đồ Calories -->
   <div align="center">
-    <div class="calories-info">
-      <div>
-        <p>Cần nạp thêm</p>
-        <strong>2000</strong>
-        <p>Calories</p>
-      </div>
-    </div>
+    <swiper-container #swiper_chart (slidechangetransitionend)="slideChartChanged()">
+      <!-- Biểu đồ Calories Đã nạp -->
+      <swiper-slide>
+        <div class="calories-info" id="charged">
+          <div>
+            <p>Cần nạp thêm</p>
+            <strong>2000</strong>
+            <p>Calories</p>
+          </div>
+        </div>
+      </swiper-slide>
+
+      <!-- Biểu đồ Calories Đã đốt -->
+      <swiper-slide>
+        <div class="calories-info" id="burned">
+          <div>
+            <p>Cần đốt đi</p>
+            <strong>2000</strong>
+            <p>Calories</p>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+
+    <!-- 
+    <svg width="207" height="207">
+     
+      <circle class="circle-chart" cx="50" cy="50" r="40" fill="none" stroke="#558EC5" stroke-width="5"
+        [style.stroke-dasharray]="calculateDashArray(value)" transform="rotate(-90, 50, 50)"></circle>
+    </svg> -->
+
+
     <ion-row class="ion-align-items-center">
       <ion-col size="4"><span class="recharged"></span>Đã nạp: 323</ion-col>
       <ion-col size="4"><span class="burned"></span>Đã đốt: 235</ion-col>
       <ion-col size="4"><span class="required"></span>Cần nạp: 2000</ion-col>
     </ion-row>
   </div>
-  <ion-segment color="dark" value="nutri">
-    <ion-segment-button value="nutri">
+
+  <!-- Segment Dinh dưỡng/Tập Luyện -->
+  <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="current_segment_value" color="dark">
+    <ion-segment-button value="0">
       Dinh dưỡng
     </ion-segment-button>
-    <ion-segment-button value="exercise">
+    <ion-segment-button value="1">
       Tập luyện
     </ion-segment-button>
   </ion-segment>
 
   <ion-content>
-    <ion-list>
-      <ion-item-sliding>
-        <ion-item lines="none">
-          <img src="/assets/images/banhkem.jpg" alt="">
-          <ion-label class="card-label">
-            <h3>Bánh kem</h3>
-            <p>Ko giòn đâu :v</p>
-          </ion-label>
-          <ion-label slot="end">
-            <h2>+300</h2>
-          </ion-label>
-        </ion-item>
-        <ion-item-options side="end">
-          <ion-item-option color="dark">Remove</ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
-
-      <ion-item-sliding>
-        <ion-item lines="none">
-          <img src="/assets/images/banhkem.jpg" alt="">
-          <ion-label class="card-label">
-            <h3>Bánh kem</h3>
-            <p>Ko giòn đâu :v</p>
-          </ion-label>
-          <ion-label slot="end">
-            <h2>+300</h2>
-          </ion-label>
-        </ion-item>
-        <ion-item-options side="end">
-          <ion-item-option color="dark">Remove</ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
 
 
+    <swiper-container #swiper_list class="swiper" (slidechangetransitionend)="slideListChanged()"
+      [allowTouchMove]="false">
 
-    </ion-list>
+      <!-- List món ăn -->
+      <swiper-slide>
+        <ion-list>
+          <ion-item-sliding>
+            <ion-item lines="none">
+              <img src="/assets/images/banhkem.jpg" alt="">
+              <ion-label class="card-label">
+                <h3>Bánh kem</h3>
+                <p>Ko giòn đâu :v</p>
+              </ion-label>
+              <ion-label slot="end">
+                <h2 id="food">+ 300</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="dark">Remove</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+
+          <ion-item-sliding>
+            <ion-item lines="none">
+              <img src="/assets/images/banhkem.jpg" alt="">
+              <ion-label class="card-label">
+                <h3>Bánh kem</h3>
+                <p>Ko giòn đâu :v</p>
+              </ion-label>
+              <ion-label slot="end">
+                <h2 id="food">+ 300</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="dark">Remove</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </swiper-slide>
+
+      <!-- List Bài tập -->
+      <swiper-slide>
+        <ion-list>
+          <ion-item-sliding>
+            <ion-item lines="none">
+              <img src="https://cdn.britannica.com/07/145407-050-8DBD77E9/belts.jpg" alt="">
+              <ion-label class="card-label">
+                <h3>Karate 1H</h3>
+                <p>Tập chetme</p>
+              </ion-label>
+              <ion-label slot="end">
+                <h2 id="exercise">- 300</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="dark">Remove</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+
+          <ion-item-sliding>
+            <ion-item lines="none">
+              <img src="https://cdn.britannica.com/07/145407-050-8DBD77E9/belts.jpg" alt="">
+              <ion-label class="card-label">
+                <h3>Karate 1H</h3>
+                <p>Tập chetme</p>
+              </ion-label>
+              <ion-label slot="end">
+                <h2 id="exercise">- 300</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="dark">Remove</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </swiper-slide>
+    </swiper-container>
+
+
+
   </ion-content>
 
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
@@ -76,23 +151,27 @@
   </ion-fab>
 
 
-  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.5" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.75]">
     <ng-template>
       <ion-content>
         <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
 
-        <ion-list>
-
-
-          <ion-item button lines="none">
-            <img src="/assets/images/banhkem.jpg" alt="">
+        <ion-scroll zooming="true" direction="xy" style="width:500px;height:500px">
+          <ion-item button *ngFor="let item of caloriesList" lines="none">
+            <img [src]="item.image" alt="{{item.name}}">
             <ion-label class="card-label">
-              <h3>Bánh kem</h3>
-              <p>Ko giòn đâu :v</p>
+              <h3>{{item.name}}</h3>
+              <p>{{item.description}}</p>
             </ion-label>
 
           </ion-item>
-        </ion-list>
+        </ion-scroll>
+
+
+
+
+
+
 
       </ion-content>
     </ng-template>
