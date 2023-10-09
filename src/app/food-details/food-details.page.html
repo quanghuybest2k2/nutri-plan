@@ -14,10 +14,7 @@
   <ion-card>
     <ion-card-content>
       <div>
-        <ion-img
-          [src]="'assets/images/' + foodItem.image"
-          alt="{{ foodItem.name }}"
-        ></ion-img>
+        <ion-img [src]="foodItem.image" alt="{{ foodItem.name }}"></ion-img>
         <div class="row">
           <h2>{{ foodItem.name }}</h2>
           <div class="square_1"><p>{{foodItem.calories}} calories</p></div>
@@ -41,8 +38,11 @@
         <div class="recipe">
           <h3>Công thức nấu ăn</h3>
           <div class="recipe-content">
-            <p class="l" [innerHTML]="foodItem.recipe"></p>
-            <p [innerHTML]="foodItem.work"></p>
+            <p
+              class="l"
+              [innerHTML]="foodItem.recipe || 'Chưa có công thức'"
+            ></p>
+            <p [innerHTML]="foodItem.work|| 'Chưa có cách làm'"></p>
           </div>
         </div>
       </div>
