@@ -38,4 +38,15 @@ export class CountService {
   clearCounts(): void {
     this.storageService.remove(this.COUNTS_KEY);
   }
+  // đếm tổng số item
+  getTotalCount(): number {
+    const countsArray = this.getCounts() || [];
+    let totalCount = 0;
+
+    countsArray.forEach((item) => {
+      totalCount += item.count;
+    });
+
+    return totalCount;
+  }
 }

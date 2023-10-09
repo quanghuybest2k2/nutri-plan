@@ -26,8 +26,7 @@ export const Categories: ExerciseCategory[] = [
         id: 1,
         ten: 'Goblet squat',
         moTa: 'Thân trên',
-        hinhAnh:
-          'https://swequity.vn/wp-content/uploads/2019/06/tap-gym-tang-chieu-cao.jpg',
+        hinhAnh: 'https://i.ytimg.com/vi/1oed-UmAxFs/maxresdefault.jpg',
         phut: 5,
         calo: 120,
         urlVideo: '',
