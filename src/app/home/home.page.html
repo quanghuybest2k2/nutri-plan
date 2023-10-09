@@ -119,9 +119,7 @@
         <ion-col size="12">
           <ion-segment scrollable>
             <!-- loop -->
-            <ion-segment-button
-              *ngFor="let exercise of topExercises | slice: 0:4; let i = index"
-            >
+            <ion-segment-button *ngFor="let exercise of exercises | slice: 0:4">
               <ion-card class="ion-no-margin">
                 <img [src]="exercise.hinhAnh" alt="{{exercise.ten}}" />
                 <ion-card-header class="ion-align-items-start ion-no-padding">
