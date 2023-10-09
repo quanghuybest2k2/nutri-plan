@@ -8,5 +8,8 @@ register();
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() { }
+  public showTabs: boolean = true;
+
+  constructor() {}
+
 }

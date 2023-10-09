@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-intro',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./intro.page.scss'],
 })
 export class IntroPage implements OnInit {
-
-  constructor() { }
+  constructor(private appComponent: AppComponent) {}
 
   ngOnInit() {
+    this.appComponent.showTabs = false;
   }
-
 }
