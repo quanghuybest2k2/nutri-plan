@@ -15,13 +15,18 @@ export class ExercisePage implements OnInit {
   colors: string[] = ['#f6cc38', '#558ec5', '#ee9cd2', '#ffffff'];
   listExercise: ExerciseCategory[] = Categories;
   topExercises: Exercise[] = [];
+  exercises!: Exercise[];
 
   constructor(private countService: CountService) {}
 
   ngOnInit() {
-    this.getExercisePopular();
+    if (this.countService.getTotalCount() < 4) {
+      this.exercises = this.getAllExercises();
+    } else {
+      this.exercises = this.getExercisePopular();
+    }
   }
-  getExercisePopular() {
+  getExercisePopular(): Exercise[] {
     const countsArray = this.countService.getCounts() ?? [];
 
     // Sắp xếp mảng counts theo số lượng count giảm dần
@@ -46,9 +51,18 @@ export class ExercisePage implements OnInit {
       })
       // Lọc bỏ các bài tập không tìm thấy hoặc không hợp lý
       .filter((item) => item !== null) as Exercise[];
+    return this.topExercises;
   }
   getRandomColor(): string {
     const randomIndex = Math.floor(Math.random() * this.colors.length);
     return this.colors[randomIndex];
+  }
+  // lấy tất cả bài tập nếu chưa có đủ 4 bài tập phổ biến
+  getAllExercises(): Exercise[] {
+    let allExercises: Exercise[] = [];
+    Categories.forEach((category) => {
+      allExercises = [...allExercises, ...category.exercises];
+    });
+    return allExercises;
   }
 }
