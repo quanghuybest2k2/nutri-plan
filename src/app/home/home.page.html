@@ -11,15 +11,7 @@
   <svg width="100" height="100">
     <!-- Chỉnh đường viền tròn thì đổi stroke-width="5" -->
     <!-- Xoay cái này transform="rotate(-90, 50, 50)" để nó vẽ bắt đầu ở hướng 0 giờ -->
-    <circle
-      cx="50"
-      cy="50"
-      r="40"
-      fill="none"
-      stroke="#558EC5"
-      stroke-width="5"
-      [style.stroke-dasharray]="calculateDashArray(value)"
-      transform="rotate(-90, 50, 50)"
-    ></circle>
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#558EC5" stroke-width="5"
+      [style.stroke-dasharray]="calculateDashArray(value)" transform="rotate(-90, 50, 50)"></circle>
   </svg>
 </ion-content>
