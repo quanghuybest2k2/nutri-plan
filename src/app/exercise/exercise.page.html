@@ -10,7 +10,7 @@
         <h2 class="ion-margin-bottom">Tập nhiều nhất</h2>
         <ion-segment scrollable>
           <ion-segment-button
-            *ngFor="let exercise of topExercises | slice: 0:4; let i = index"
+            *ngFor="let exercise of exercises | slice: 0:4; let i = index"
           >
             <ion-card class="custom-card">
               <img [src]="exercise.hinhAnh" class="card-image" />
