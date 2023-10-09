@@ -84,7 +84,7 @@ export const CalorieCardsList: CalorieCard[] = [
     {
         id: 10,
         name: "Yoga",
-        image: "hhttps://ggfc.vn/uploads/yoga/tap-yoga-ngoai-30-5.jpg",
+        image: "https://ggfc.vn/uploads/yoga/tap-yoga-ngoai-30-5.jpg",
         calorie: 300,
         description: "Tập 1 giờ",
         isDish: false
