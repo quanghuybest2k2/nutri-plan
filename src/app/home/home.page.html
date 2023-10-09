@@ -72,8 +72,7 @@
           <ion-segment scrollable>
             <ion-segment-button
               *ngFor="let baiViet of baiViet let i = index"
-              value="{{ baiViet.id }}"
-            >
+              value="{{ baiViet.id }}">
               <ion-card>
                 <img [src]="baiViet.imageUrl" />
                 <ion-card-header class="ion-align-items-center ion-no-padding">
@@ -99,7 +98,7 @@
               value="{{ dinhDuong.id }}"
             >
               <ion-card>
-                <img [src]="dinhDuong.imageUrl" />
+                <img [src]="dinhDuong.imageUrl"  />
                 <ion-card-header class="ion-align-items-start ion-no-padding">
                   <ion-card-title>{{ dinhDuong.name }}</ion-card-title>
                   <ion-card-subtitle>{{ dinhDuong.describe}}</ion-card-subtitle>

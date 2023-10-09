@@ -1,8 +1,11 @@
-
-<ion-header>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-</ion-header>
+<link
+  href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
 <ion-content>
 <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
 <h1>Dinh Dưỡng</h1>
@@ -14,10 +17,10 @@
     Khai vị
   </ion-segment-button>
   <ion-segment-button value="Món chay">
-    Món chay
+    Chay
   </ion-segment-button>
   <ion-segment-button value="Mặn">
-    Món mặn
+    Mặn
   </ion-segment-button>
   <ion-segment-button value="Eat-clean">
     Eat-clean
@@ -30,7 +33,7 @@
         <ion-segment scrollable>
           <ion-segment-button *ngFor="let foodItem of filteredFoodItems; let i = index" value="{{ foodItem.id }}" [routerLink]="['/food-details', foodItem.id]">
             <ion-card>
-              <img [src]="'assets/images/' + foodItem.image">
+              <img [src]="foodItem.image">
               <ion-card-header class="ion-align-items-start">
                 <ion-card-subtitle>{{ foodItem.name }}</ion-card-subtitle>
                 <div class="square-container">
@@ -51,11 +54,11 @@
         <ion-segment scrollable>
           <ion-segment-button *ngFor="let foodItem of featuredFoodItems; let i = index" value="{{ foodItem.id }}" [routerLink]="['/food-details', foodItem.id]">
             <ion-card>
-              <img [src]="'assets/images/' + foodItem.image">
+              <img [src]="foodItem.image">
               <ion-card-header class="ion-align-items-start">
                 <ion-card-subtitle>{{ foodItem.name }} </ion-card-subtitle>
                 <div class="square-container">
-                  <p>{{ foodItem.calories }}</p>
+                  <p>{{ foodItem.calories }} calo</p>
                 </div>
               </ion-card-header>
             </ion-card>
@@ -72,11 +75,11 @@
         <ion-segment scrollable>
           <ion-segment-button *ngFor="let foodItem of avoidFoodItems; let i = index" value="{{ foodItem.id }}" [routerLink]="['/food-details', foodItem.id]">
             <ion-card>
-              <img [src]="'assets/images/' + foodItem.image">
+              <img [src]="foodItem.image">
               <ion-card-header class="ion-align-items-start">
                 <ion-card-subtitle>{{ foodItem.name }}</ion-card-subtitle>
                 <div class="square-container">
-                  <p>{{ foodItem.calories }}</p>
+                  <p>{{ foodItem.calories }} calo</p>
                 </div>
               </ion-card-header>
             </ion-card>
