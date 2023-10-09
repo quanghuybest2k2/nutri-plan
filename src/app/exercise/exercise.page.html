@@ -1,10 +1,6 @@
-<ion-header>
-  <ion-toolbar class="ion-margin-top">
-    <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="ion-padding">
+  <!-- search -->
+  <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
   <ion-text class="ion-text-center" color="dark">
     <h1>Tập luyện</h1>
   </ion-text>
@@ -13,27 +9,27 @@
       <ion-col size="12">
         <h2 class="ion-margin-bottom">Tập nhiều nhất</h2>
         <ion-segment scrollable>
-          <ion-segment-button *ngFor="let category of listExercise">
-            <ion-card
-              class="ion-no-margin custom-card"
-              *ngIf="category.exercises.length > 0"
-            >
-              <img [src]="category.exercises[0].hinhAnh" class="card-image" />
+          <ion-segment-button
+            *ngFor="let exercise of topExercises | slice: 0:4; let i = index"
+          >
+            <ion-card class="custom-card">
+              <img [src]="exercise.hinhAnh" class="card-image" />
               <ion-card-header class="ion-align-items-start ion-no-padding">
                 <ion-card-title class="card-title"
-                  >{{category.exercises[0].ten}}</ion-card-title
+                  >{{exercise.ten}}</ion-card-title
                 >
               </ion-card-header>
               <ion-card-content class="ion-no-padding">
                 <ion-row class="ion-justify-content-between">
                   <p class="card-description">
-                    Đốt cháy {{category.exercises[0].calo}} calo
+                    Đốt cháy {{exercise.calo}} calo
                   </p>
                 </ion-row>
               </ion-card-content>
             </ion-card>
           </ion-segment-button>
         </ion-segment>
+
         <h2 class="ion-margin-top ion-margin-bottom">Danh mục</h2>
         <ion-row>
           <ion-col
@@ -44,7 +40,7 @@
             [routerLink]="['/list-exercise', category.id]"
           >
             <ion-card
-              class="ion-no-margin custom-card"
+              class="ion-no-margin custom-card-category"
               [style.background-color]="getRandomColor()"
             >
               <ion-card-header class="ion-align-items-center ion-no-padding">

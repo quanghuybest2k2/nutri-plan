@@ -1,0 +1,237 @@
+ion-content {
+  --padding-top: 64px;
+  --padding-start: 24px;
+  --padding-end: 24px;
+}
+h1{
+  font-family: 'Raleway', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 36px;
+}
+h2{
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+h3{
+  color: black;
+  display: inline;
+  text-align: center;
+  text-transform: lowercase;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+
+ion-searchbar{
+  --box-shadow: none !important;
+  font-family: 'Raleway', sans-serif;
+  outline: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 36px;
+}
+
+ion-grid{
+  padding: 0;
+  margin: 0;
+}
+
+ion-row{
+  margin: 0;
+  padding: 0;
+}
+
+.fill-content {
+  width: 100%;
+  height: 100%;
+}
+
+
+.overview {
+  font-family: 'Raleway', sans-serif;
+  margin-top: 16px;
+  margin-bottom: 32px;
+  padding: 0;
+}
+
+ion-card {
+  font-family: 'Raleway', sans-serif;
+  border: 1px solid #ccc;
+  box-shadow: none;
+  display: block;
+  box-sizing: border-box;
+}
+
+ion-card-header {
+  text-align: left;
+}
+
+ion-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+}
+.nutrition{
+  padding: 0;
+  margin: 0;
+  width: 50%;  
+}
+
+.nutrition ion-card-title{
+  color: #E39C8C;
+}
+.exercise{
+  padding: 0;
+  margin: 0;
+  width: 50%;
+}
+
+.exercise ion-card-title{
+  color: #EE9CD2;
+}
+
+.drink{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.drink-water{
+  display: block;
+  text-align: left;
+  
+}
+
+.drink-water ion-card-title{
+  color: #558EC5;
+}
+.drink-water p {
+  font-family: 'Poppins', sans-serif;
+}
+
+.drop-water{
+  font-size: 28px;
+  display: block;
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+ion-segment {
+  border: none;
+  background: none;
+}
+
+ion-segment-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  --margin-start: 0;
+  --margin-end: 0;
+}
+
+.hot ion-card {
+  width: 300px;
+  box-shadow: none;
+  color: #e2e2e2;
+  border: 1px solid #ccc;
+}
+
+.hot ion-card img {
+  width: 100%;
+}
+
+.hot{
+  margin: 0;
+  padding: 0;
+}
+
+.hot ion-card-title{
+  margin: 8px !important;
+  //margin-top: 12px !important;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.hot ion-card-subtitle {
+  margin-left: 8px !important;
+  margin-bottom: 20px !important;
+  text-transform: none;
+  display: block;
+  text-align: center !important;
+}
+
+.nutri ion-card {
+  width: 132px;
+  box-shadow: none;
+  border: none;
+  margin-left: 4px;
+}
+
+.nutri ion-card img {
+  width: 100%;
+}
+
+.nutri{
+  margin: 0;
+  padding: 0;
+}
+
+.nutri ion-card-title{
+  font-family: 'Raleway', sans-serif;
+  text-transform: none;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.nutri ion-card-subtitle {
+  margin-bottom: 20px !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  text-transform: lowercase;
+  display: block;
+  text-align: center;
+}
+
+.exc ion-card {
+  width: 200px !important;
+  box-shadow: none;
+  border: none;
+  margin-left: 16px;
+}
+
+.exc ion-card img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.exc{
+  margin: 0;
+  padding: 0;
+}
+
+.exc ion-card-title{
+  font-family: 'Raleway', sans-serif;
+  text-transform: none;
+  font-size: 16px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.exc ion-card-subtitle {
+  margin-bottom: 8px !important;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  display: block;
+  text-align: center;
+}
+ .exc ion-card-content{
+  margin-bottom: 20px !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 8px !important;
+  color: #000;
+  text-transform: none;
+ }

@@ -1,17 +1,145 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Trang chủ </ion-title>
-  </ion-toolbar>
-</ion-header>
+<link
+  href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <p>Đường thẳng giá trị: {{value}} / {{maxValue}} Calos</p>
-  <ion-progress-bar [value]="calculateProgress(value) / 100"></ion-progress-bar>
-  <p>Đường tròn với giá trị: {{value}} / {{maxValue}} Calos</p>
-  <svg width="100" height="100">
-    <!-- Chỉnh đường viền tròn thì đổi stroke-width="5" -->
-    <!-- Xoay cái này transform="rotate(-90, 50, 50)" để nó vẽ bắt đầu ở hướng 0 giờ -->
-    <circle cx="50" cy="50" r="40" fill="none" stroke="#558EC5" stroke-width="5"
-      [style.stroke-dasharray]="calculateDashArray(value)" transform="rotate(-90, 50, 50)"></circle>
-  </svg>
+<ion-content [fullscreen]="true">
+  <h1>Nutriplan</h1>
+  <ion-searchbar placeholder="Tìm kiếm" class="ion-no-border"></ion-searchbar>
+
+  <div class="overview">
+    <ion-grid>
+      <ion-row>
+        <!-- Dinh dưỡng -->
+        <ion-card class="nutrition">
+          <ion-card-header>
+            <ion-card-subtitle>Dinh Dưỡng</ion-card-subtitle>
+            <ion-card-title>2000</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="fill-content">
+            Calories/ngày
+          </ion-card-content>
+        </ion-card>
+        <!-- Tập luyện -->
+        <ion-card class="exercise">
+          <ion-card-header>
+            <ion-card-subtitle>Tập luyện</ion-card-subtitle>
+            <ion-card-title>5</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="fill-content">
+            Bài tập/ngày
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+      <ion-row>
+        <!-- Uống nước -->
+        <ion-card class="drink">
+          <ion-grid>
+            <ion-row class="ion-justify-content-end">
+              <div class="drink-water">
+                <ion-card-header>
+                  <ion-card-subtitle>Uống nước</ion-card-subtitle>
+                  <ion-card-title>1.5 Lit</ion-card-title>
+                </ion-card-header>
+                <ion-card-content class="fill-content"
+                  >250ml = Ly nước</ion-card-content
+                >
+              </div>
+              <div class="drop-water">
+                <ion-icon name="water" color="primary"></ion-icon>
+                <ion-icon name="water" color="primary"></ion-icon>
+                <ion-icon name="water" color="primary"></ion-icon>
+                <ion-icon name="water"></ion-icon>
+                <ion-icon name="water"></ion-icon>
+                <ion-icon name="water"></ion-icon>
+              </div>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="hot">
+    <h2>Nổi bật</h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-segment scrollable>
+            <ion-segment-button
+              *ngFor="let baiViet of baiViet let i = index"
+              value="{{ baiViet.id }}"
+            >
+              <ion-card>
+                <img [src]="baiViet.imageUrl" />
+                <ion-card-header class="ion-align-items-center ion-no-padding">
+                  <ion-card-subtitle>{{ baiViet.category }}</ion-card-subtitle>
+                  <ion-card-title>{{ baiViet.name }}</ion-card-title>
+                </ion-card-header>
+              </ion-card>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="nutri">
+    <h2>Dinh dưỡng</h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-segment scrollable>
+            <ion-segment-button
+              *ngFor="let dinhDuong of dinhDuong let i = index"
+              value="{{ dinhDuong.id }}"
+            >
+              <ion-card>
+                <img [src]="dinhDuong.imageUrl" />
+                <ion-card-header class="ion-align-items-start ion-no-padding">
+                  <ion-card-title>{{ dinhDuong.name }}</ion-card-title>
+                  <ion-card-subtitle>{{ dinhDuong.describe}}</ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="exc">
+    <h2>Tập luyện</h2>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <ion-segment scrollable>
+            <!-- loop -->
+            <ion-segment-button
+              *ngFor="let exercise of topExercises | slice: 0:4; let i = index"
+            >
+              <ion-card class="ion-no-margin">
+                <img [src]="exercise.hinhAnh" alt="{{exercise.ten}}" />
+                <ion-card-header class="ion-align-items-start ion-no-padding">
+                  <ion-card-title>{{exercise.ten}}</ion-card-title>
+                  <ion-card-subtitle>{{exercise.moTa}}</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content class="ion-no-padding">
+                  <ion-row class="ion-justify-content-between">
+                    <p>{{exercise.phut}} phút</p>
+                    <p>Đốt {{exercise.calo}} calories</p>
+                  </ion-row>
+                </ion-card-content>
+              </ion-card>
+            </ion-segment-button>
+            <!-- end loop -->
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

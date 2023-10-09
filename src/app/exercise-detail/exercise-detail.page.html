@@ -1,12 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button icon="chevron-back-outline"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Chi tiết bài tập</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="card" *ngIf="selectedExercise">
     <iframe
@@ -24,8 +15,12 @@
     </div>
     <!-- Danh sách các bài tập -->
     <ion-list>
+      <ion-label class="ion-margin-start" style="font-weight: bold"
+        >Bài tập khác</ion-label
+      >
       <!-- Chỉ hiển thị 3 bài thôi -->
       <ion-item
+        class="ion-margin-top"
         *ngFor="let exercise of selectedCategory.exercises | slice:0:3"
         [routerLink]="['/exercise-detail', selectedCategory.id, exercise.id]"
       >
@@ -38,7 +33,9 @@
         </ion-label>
       </ion-item>
     </ion-list>
-
+    <ion-item class="ion-margin-top">
+      <ion-label>Số lượt truy cập: {{count}}</ion-label>
+    </ion-item>
     <ion-button
       expand="full"
       color="dark"
