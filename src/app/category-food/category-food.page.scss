@@ -220,9 +220,9 @@ ion-content {
   --padding-end: 24px;
 }
 h1{
-  font-family: 'Raleway', sans-serif;
-  font-size: 32px;
-  font-weight: 500;
+  font-family: 'Raleway', sans-serif, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
   margin-bottom: 36px;
 }
 h2{
@@ -330,9 +330,14 @@ ion-card-title {
 .drink-water ion-card-title{
   color: #558EC5;
 }
-.drink-water p {
-  font-family: 'Poppins', sans-serif;
+.calories {
+  font-family: 'Your-Desired-Font', sans-serif; /* Replace 'Your-Desired-Font' with the actual font you want to use */
+  font-size: 16px; /* Adjust the font size as needed */
+  line-height: 22px; /* Adjust the line height as needed */
+  color: #000000; /* Adjust the font color as needed */
+  margin: 0;
 }
+
 
 .drop-water{
   font-size: 28px;
@@ -459,7 +464,4 @@ ion-card {
   font-size: 8px !important;
   color: #000;
   text-transform: none;
- }
- *{
-  font-family: 'Raleway', sans-serif;
  }
