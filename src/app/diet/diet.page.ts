@@ -72,6 +72,26 @@ export class DietPage implements OnInit {
   }
 
 
+
+  removeFood(index: number) {
+    if (index > -1)
+      this.foodList.splice(index, 1);
+
+  }
+
+  removeExercise(index: number) {
+    if (index > -1)
+      this.exerciseList.splice(index, 1);
+  }
+
+  remove(item: CalorieCard) {
+    if (item.isDish) {
+      this.removeFood(this.foodList.indexOf(item))
+    } else {
+      this.removeExercise(this.exerciseList.indexOf(item));
+    }
+  }
+
   getChargedCalorie() {
     let sum = 0;
     for (let item of this.foodList) {

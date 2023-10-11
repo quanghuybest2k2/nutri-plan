@@ -81,7 +81,7 @@
               </ion-label>
             </ion-item>
             <ion-item-options side="end">
-              <ion-item-option color="dark">Remove</ion-item-option>
+              <ion-item-option (click)="remove(item)" color="dark">Remove</ion-item-option>
             </ion-item-options>
           </ion-item-sliding>
         </ion-list>
@@ -102,7 +102,7 @@
               </ion-label>
             </ion-item>
             <ion-item-options side="end">
-              <ion-item-option color="dark">Remove</ion-item-option>
+              <ion-item-option (click)="remove(item)" color="dark">Remove</ion-item-option>
             </ion-item-options>
           </ion-item-sliding>
 
@@ -123,8 +123,9 @@
 
   <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.75]">
     <ng-template>
+      <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
+
       <ion-content>
-        <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
 
         <ion-scroll zooming="true" direction="xy" style="width:500px;height:500px">
           <ion-item button *ngFor="let item of caloriesList" lines="none">
@@ -136,13 +137,6 @@
 
           </ion-item>
         </ion-scroll>
-
-
-
-
-
-
-
       </ion-content>
     </ng-template>
   </ion-modal>
