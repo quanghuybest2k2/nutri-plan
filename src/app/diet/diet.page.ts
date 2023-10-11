@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonSegment } from '@ionic/angular';
+import { IonModal, IonSegment } from '@ionic/angular';
 import { CalorieCard, CalorieCardsList } from '../Models/calories';
 import { InfoService } from '../services/info.service';
 
@@ -10,6 +10,7 @@ import { InfoService } from '../services/info.service';
   styleUrls: ['./diet.page.scss'],
 })
 export class DietPage implements OnInit {
+  @ViewChild(IonModal) modal: IonModal | undefined;
   @ViewChild('swiper_chart')
   swiperRefChart: ElementRef | undefined;
   @ViewChild('segment_button') segComponent: IonSegment | undefined;
@@ -63,6 +64,10 @@ export class DietPage implements OnInit {
       this.foodList.push(item)
     else
       this.exerciseList.push(item)
+
+    if (this.modal != undefined) {
+      this.modal.dismiss();
+    }
   }
 
 
@@ -90,10 +95,10 @@ export class DietPage implements OnInit {
 
     await this.swiperRefChart?.nativeElement.swiper.slideTo(this.current_segment_value);
     await this.swiperRefList?.nativeElement.swiper.slideTo(this.current_segment_value);
-    if (this.segComponent != undefined) {
 
+    // Bug here
+    if (this.segComponent != undefined) {
       this.segComponent.value = this.current_segment_value;
-      console.log(this.segComponent.value)
     }
 
 
@@ -110,7 +115,6 @@ export class DietPage implements OnInit {
   handleInput(event: Event) {
     const query = (event.target as HTMLTextAreaElement).value.toLowerCase();
     this.caloriesList = CalorieCardsList.filter((item) => item.name.toLowerCase().indexOf(query) > -1)
-
   }
 
 }

@@ -123,20 +123,31 @@
   </ion-fab>
 
 
-  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.75]">
+  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 1]">
     <ng-template>
       <ion-searchbar (ionInput)="handleInput($event)" placeholder="Tìm kiếm"></ion-searchbar>
 
       <ion-content>
 
-        <ion-scroll zooming="true" direction="xy" style="width:500px;height:500px">
+        <ion-scroll>
+
+
+
+
+
           <ion-item button (click)="add(item)" *ngFor="let item of caloriesList" lines="none">
+
+
+
+
             <img [src]="item.image" alt="{{item.name}}">
             <ion-label class="card-label">
               <h3>{{item.name}}</h3>
               <p>{{item.description}}</p>
             </ion-label>
-
+            <ion-label slot="end">
+              <h2 [id]="item.isDish?'food':'exercise'"> {{item.isDish?'+':'-'}} {{item.calorie}}</h2>
+            </ion-label>
           </ion-item>
         </ion-scroll>
       </ion-content>
