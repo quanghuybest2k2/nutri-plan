@@ -16,10 +16,7 @@ export class DietPage implements OnInit {
   @ViewChild('swiper_list')
   swiperRefList: ElementRef | undefined;
 
-  caloriesList: CalorieCard[] = CalorieCardsList
-
-
-
+  public caloriesList: CalorieCard[] = [...CalorieCardsList]
 
   foodList: CalorieCard[] = [];
   exerciseList: CalorieCard[] = [];
@@ -108,6 +105,12 @@ export class DietPage implements OnInit {
 
   async slideChartChanged() {
     this.current_segment_value = await this.swiperRefChart?.nativeElement.swiper.activeIndex;
+  }
+
+  handleInput(event: Event) {
+    const query = (event.target as HTMLTextAreaElement).value.toLowerCase();
+    this.caloriesList = CalorieCardsList.filter((item) => item.name.toLowerCase().indexOf(query) > -1)
+
   }
 
 }

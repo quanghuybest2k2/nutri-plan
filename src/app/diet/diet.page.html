@@ -125,7 +125,7 @@
 
   <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.75]">
     <ng-template>
-      <ion-searchbar placeholder="Tìm kiếm"></ion-searchbar>
+      <ion-searchbar (ionInput)="handleInput($event)" placeholder="Tìm kiếm"></ion-searchbar>
 
       <ion-content>
 
