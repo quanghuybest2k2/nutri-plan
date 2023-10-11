@@ -6,11 +6,11 @@
       <h1>Chế độ</h1>
       <p>Tự xây dựng chế độ cho bản thân</p>
     </ion-label>
-  </div>
+  </div>s
 
   <!-- Biểu đồ Calories -->
   <div align="center">
-    <swiper-container #swiper_chart (slidechangetransitionend)="slideChartChanged()">
+    <swiper-container #swiper_chart (slidechangetransitionend)="slideChartChanged()" [allowTouchMove]="false">
       <!-- Biểu đồ Calories Đã nạp -->
       <swiper-slide>
         <div class="calories-info" id="charged">
@@ -51,7 +51,8 @@
   </div>
 
   <!-- Segment Dinh dưỡng/Tập Luyện -->
-  <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="current_segment_value" color="dark">
+  <ion-segment #segment_button (ionChange)="segmentChanged($event)" [(ngModel)]="current_segment_value" color="dark"
+    value="0">
     <ion-segment-button value="0">
       Dinh dưỡng
     </ion-segment-button>
@@ -61,6 +62,7 @@
   </ion-segment>
 
   <ion-content>
+
 
 
     <swiper-container #swiper_list class="swiper" (slidechangetransitionend)="slideListChanged()"
@@ -128,7 +130,7 @@
       <ion-content>
 
         <ion-scroll zooming="true" direction="xy" style="width:500px;height:500px">
-          <ion-item button *ngFor="let item of caloriesList" lines="none">
+          <ion-item button (click)="add(item)" *ngFor="let item of caloriesList" lines="none">
             <img [src]="item.image" alt="{{item.name}}">
             <ion-label class="card-label">
               <h3>{{item.name}}</h3>

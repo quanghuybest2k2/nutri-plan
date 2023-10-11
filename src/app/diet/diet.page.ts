@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonSegment } from '@ionic/angular';
 import { CalorieCard, CalorieCardsList } from '../Models/calories';
 import { InfoService } from '../services/info.service';
 
@@ -11,7 +12,7 @@ import { InfoService } from '../services/info.service';
 export class DietPage implements OnInit {
   @ViewChild('swiper_chart')
   swiperRefChart: ElementRef | undefined;
-
+  @ViewChild('segment_button') segComponent: IonSegment | undefined;
   @ViewChild('swiper_list')
   swiperRefList: ElementRef | undefined;
 
@@ -20,49 +21,17 @@ export class DietPage implements OnInit {
 
 
 
-  foodList: CalorieCard[] = [
-    {
-      id: 2,
-      name: "Pizza",
-      image: "https://img.dominos.vn/cach-lam-pizza-chay-0.jpg",
-      calorie: 266,
-      description: "Đồ ăn Ý",
-      isDish: true
-    },
-    {
-      id: 3,
-      name: "Cơm tấm",
-      image: "https://images.elipsport.vn/anh-seo-tin-tuc/2020/12/21/com-tam-bao-nhieu-calo-an-nhieu-co-map-khong-1.jpg",
-      calorie: 566,
-      description: "Đồ ăn Việt",
-      isDish: true
-    },
-  ];
-  exerciseList: CalorieCard[] = [
-    {
-      id: 9,
-      name: "Squat",
-      image: "https://images.elipsport.vn/news/2020/4/28/huong-dan-cac-bai-tap-squat-tai-nha-cho-nam-mong-to.1588067225.jpg",
-      calorie: 15,
-      description: "Tốc độ 100 lần/phút",
-      isDish: false
-    },
-    {
-      id: 10,
-      name: "Yoga",
-      image: "https://ggfc.vn/uploads/yoga/tap-yoga-ngoai-30-5.jpg",
-      calorie: 300,
-      description: "Tập 1 giờ",
-      isDish: false
-    },
-  ];
+  foodList: CalorieCard[] = [];
+  exerciseList: CalorieCard[] = [];
 
   // Max calories amount per day
   current_segment_value = 0;
 
   maxValue: number = 2000;
 
-  constructor(private router: Router, private infoService: InfoService) { }
+  constructor(private router: Router, private infoService: InfoService) {
+
+  }
 
   ngOnInit() {
 
@@ -92,6 +61,17 @@ export class DietPage implements OnInit {
     }
   }
 
+  add(item: CalorieCard) {
+    if (item.isDish)
+      this.foodList.push(item)
+    else
+      this.exerciseList.push(item)
+  }
+
+
+
+
+
   getChargedCalorie() {
     let sum = 0;
     for (let item of this.foodList) {
@@ -109,12 +89,21 @@ export class DietPage implements OnInit {
   }
 
   async segmentChanged(ev: any) {
+
+
     await this.swiperRefChart?.nativeElement.swiper.slideTo(this.current_segment_value);
     await this.swiperRefList?.nativeElement.swiper.slideTo(this.current_segment_value);
+    if (this.segComponent != undefined) {
+
+      this.segComponent.value = this.current_segment_value;
+      console.log(this.segComponent.value)
+    }
+
+
   }
 
   async slideListChanged() {
-    this.current_segment_value = await this.swiperRefList?.nativeElement.swiper.activeIndex;
+    this.current_segment_value = this.swiperRefList?.nativeElement.swiper.activeIndex;
   }
 
   async slideChartChanged() {
