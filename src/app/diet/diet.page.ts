@@ -17,7 +17,7 @@ export class DietPage implements OnInit {
   @ViewChild('swiper_list')
   swiperRefList: ElementRef | undefined;
 
-  public caloriesList: CalorieCard[] = [...CalorieCardsList]
+  public caloriesList: CalorieCard[] = [...CalorieCardsList];
 
   foodList: CalorieCard[] = [];
   exerciseList: CalorieCard[] = [];
@@ -27,52 +27,38 @@ export class DietPage implements OnInit {
 
   maxValue: number = 2000;
 
-  constructor(private router: Router, private infoService: InfoService) {
-
-  }
+  constructor(private router: Router, private infoService: InfoService) {}
 
   ngOnInit() {
-
     if (!this.infoService.isProvidedBMI()) {
-      this.router.navigateByUrl('/bmi')
+      this.router.navigateByUrl('/bmi');
     }
   }
 
-
-
   removeFood(index: number) {
-    if (index > -1)
-      this.foodList.splice(index, 1);
-
+    if (index > -1) this.foodList.splice(index, 1);
   }
 
   removeExercise(index: number) {
-    if (index > -1)
-      this.exerciseList.splice(index, 1);
+    if (index > -1) this.exerciseList.splice(index, 1);
   }
 
   remove(item: CalorieCard) {
     if (item.isDish) {
-      this.removeFood(this.foodList.indexOf(item))
+      this.removeFood(this.foodList.indexOf(item));
     } else {
       this.removeExercise(this.exerciseList.indexOf(item));
     }
   }
 
   add(item: CalorieCard) {
-    if (item.isDish)
-      this.foodList.push(item)
-    else
-      this.exerciseList.push(item)
+    if (item.isDish) this.foodList.push(item);
+    else this.exerciseList.push(item);
 
     if (this.modal != undefined) {
       this.modal.dismiss();
     }
   }
-
-
-
-
 
   getChargedCalorie() {
     let sum = 0;
@@ -91,30 +77,33 @@ export class DietPage implements OnInit {
   }
 
   async segmentChanged(ev: any) {
-
-
-    await this.swiperRefChart?.nativeElement.swiper.slideTo(this.current_segment_value);
-    await this.swiperRefList?.nativeElement.swiper.slideTo(this.current_segment_value);
+    await this.swiperRefChart?.nativeElement.swiper.slideTo(
+      this.current_segment_value
+    );
+    await this.swiperRefList?.nativeElement.swiper.slideTo(
+      this.current_segment_value
+    );
 
     // Bug here
     if (this.segComponent != undefined) {
       this.segComponent.value = this.current_segment_value;
     }
-
-
   }
 
   async slideListChanged() {
-    this.current_segment_value = this.swiperRefList?.nativeElement.swiper.activeIndex;
+    this.current_segment_value =
+      this.swiperRefList?.nativeElement.swiper.activeIndex;
   }
 
   async slideChartChanged() {
-    this.current_segment_value = await this.swiperRefChart?.nativeElement.swiper.activeIndex;
+    this.current_segment_value = await this.swiperRefChart?.nativeElement.swiper
+      .activeIndex;
   }
 
   handleInput(event: Event) {
     const query = (event.target as HTMLTextAreaElement).value.toLowerCase();
-    this.caloriesList = CalorieCardsList.filter((item) => item.name.toLowerCase().indexOf(query) > -1)
+    this.caloriesList = CalorieCardsList.filter(
+      (item) => item.name.toLowerCase().indexOf(query) > -1
+    );
   }
-
 }
